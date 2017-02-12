@@ -4,6 +4,7 @@ import HomePage from './HomePage/HomePage';
 
 export default () => (
   <Router history={browserHistory}>
-    <Route path="/" component={HomePage} />
+    <Route path="/" component={HomePage}>
+    </Route>
   </Router>
-)
+);
