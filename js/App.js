@@ -5,8 +5,7 @@ import AppContainer from './AppContainer';
 export default () => (
   <div>
     <Router history={browserHistory}>
-      <Route path="/" component={AppContainer}>
-      </Route>
+      <Route path="/" component={AppContainer}></Route>
     </Router>
   </div>
 );

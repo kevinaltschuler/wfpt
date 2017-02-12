@@ -19,14 +19,23 @@ class Header extends React.Component {
     return (
       <Navbar color="faded" light toggleable>
         <NavbarToggler right onClick={this.toggle} />
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">WFPT</NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="/tour/">Tour</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+              <NavLink href="/specials">Specials</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/trailers">Trailers</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/submit">Submit</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/shop">Shop</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
