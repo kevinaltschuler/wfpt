@@ -55,7 +55,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['.js']
   },
   devtool: 'source-map',
   plugins: [

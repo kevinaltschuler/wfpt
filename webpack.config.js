@@ -59,7 +59,7 @@ module.exports = {
     publicPath: '/static/'
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['.js']
   },
   devtool: 'eval-source-map',
   plugins: [
@@ -69,9 +69,19 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        loaders: ['babel'],
+        test: /\.js?$/,
+        loaders: ['babel-loader'],
         include: path.join(__dirname, 'js')
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader' // creates style nodes from JS strings
+        }, {
+          loader: 'css-loader' // translates CSS into CommonJS
+        }, {
+          loader: 'sass-loader' // compiles Sass to CSS
+        }]
       }
     ]
   }
