@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Router, Route, browserHistory } from 'react-router';
+import HomePage from './HomePage/HomePage';
 
-export default class App extends Component {
-  render() {
-    return (
-      
-    );
-  }
-}
+export default () => (
+  <Router history={browserHistory}>
+    <Route path="/" component={HomePage} />
+  </Router>
+)
