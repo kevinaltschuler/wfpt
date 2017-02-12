@@ -74,7 +74,7 @@ module.exports = {
         include: path.join(__dirname, 'js')
       },
       {
-        test: /\.scss$/,
+        test: [/\.scss$/, /\.css/],
         use: [{
           loader: 'style-loader' // creates style nodes from JS strings
         }, {

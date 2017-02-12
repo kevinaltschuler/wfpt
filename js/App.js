@@ -1,10 +1,12 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import HomePage from './HomePage/HomePage';
+import AppContainer from './AppContainer';
 
 export default () => (
-  <Router history={browserHistory}>
-    <Route path="/" component={HomePage}>
-    </Route>
-  </Router>
+  <div>
+    <Router history={browserHistory}>
+      <Route path="/" component={AppContainer}>
+      </Route>
+    </Router>
+  </div>
 );
