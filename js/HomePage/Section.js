@@ -1,5 +1,7 @@
- export default () => (
-   <div>
+import React from 'react';
 
-   </div>
- );
+export default (props) => (
+  <div>
+    { props.children }
+  </div>
+);

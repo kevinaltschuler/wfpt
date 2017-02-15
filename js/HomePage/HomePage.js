@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import './HomePage.scss';
+import Section from './Section';
 
 // Header
 
