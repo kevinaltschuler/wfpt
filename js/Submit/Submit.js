@@ -1,6 +1,7 @@
 import React from 'react';
+import { FormGroup, Label, Input } from 'reactstrap';
 import data from './data';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 
 export default() => (
   <div>
