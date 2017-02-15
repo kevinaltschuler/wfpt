@@ -7,5 +7,5 @@ import React from 'react';
 // Footer
 
 export default () => (
-  <h1>Tour</h1>
+  <h1>Show Stops And Tix</h1>
 );
