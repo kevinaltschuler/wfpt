@@ -7,5 +7,5 @@ import React from 'react';
 // Footer
 
 export default () => (
-  <h1>Trailers</h1>
+  <h1>Latest Tour Flix</h1>
 );

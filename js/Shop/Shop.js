@@ -7,5 +7,10 @@ import React from 'react';
 // Footer
 
 export default () => (
-  <h1>Shop</h1>
+
+  <div>
+    <h1>Buy Our Stuff</h1>
+
+    <h3>Shop Coming Soon!</h3>
+  </div>
 );
