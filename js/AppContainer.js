@@ -4,7 +4,14 @@ import Header from './Header/Header';
 const AppContainer = (props) => (
   <div>
     <Header />
-    { props.children }
+    <div
+      style={{
+        margin: '0 auto',
+        maxWidth: '1200px'
+      }}
+    >
+      { props.children }
+    </div>
   </div>
 );
 
