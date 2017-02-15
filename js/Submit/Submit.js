@@ -2,7 +2,6 @@ import React from 'react';
 import data from './data';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-
 export default() => (
   <div>
     <h1>Submit</h1>
