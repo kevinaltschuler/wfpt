@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Link } from 'react-router';
 
 class Header extends React.Component {
   constructor(props) {
@@ -23,19 +24,19 @@ class Header extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/tour/">Tour</NavLink>
+              <NavLink tag={Link} to="/tour">Tour</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/specials">Specials</NavLink>
+              <NavLink tag={Link} to="/specials">Specials</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/trailers">Trailers</NavLink>
+              <NavLink tag={Link} to="/trailers">Trailers</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/submit">Submit</NavLink>
+              <NavLink tag={Link} to="/submit">Submit</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/shop">Shop</NavLink>
+              <NavLink tag={Link} to="/shop">Shop</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
