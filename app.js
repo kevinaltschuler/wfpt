@@ -51,6 +51,14 @@ app.get('/', (req, res) => {
   });
 });
 
+// tour dates
+app.get('/tour', (req, res) => {
+    res.render('Tour/tour.html', {
+        page: 'tour',
+        port: app.get('port'),
+    });
+});
+
 // specials
 app.get('/specials', (req, res) => {
   res.render('Specials/specials.html', {
@@ -59,11 +67,28 @@ app.get('/specials', (req, res) => {
   });
 });
 
+// submit videos
 app.get('/submit', (req, res) => {
-  res.render('Submit/submit.html', {
-    page: 'submit',
-    port: app.get('port'),
-  });
+    res.render('Submit/submit.html', {
+        page: 'submit',
+        port: app.get('port'),
+    });
+});
+
+// watch trailers
+app.get('/watch', (req, res) => {
+    res.render('Watch/watch.html', {
+        page: 'watch',
+        port: app.get('port'),
+    });
+});
+
+// shop
+app.get('/shop', (req, res) => {
+    res.render('Shop/shop.html', {
+        page: 'shop',
+        port: app.get('port'),
+    });
 });
 
 // Kick start our server

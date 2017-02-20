@@ -3,6 +3,7 @@
 {% block body %}
   {{ super() }}
       <div>
+        <h1>Let's See Yours</h1>
         <h4>SHORT FORM RULES</h4>
         <ul>
           <li>All submission must be original content not released on DVD/Internet prior to May 30, 2017</li>
@@ -76,5 +77,14 @@
       <p>Each entry may not use any unauthorized copyright material including music images or film. If you have copyright material in your film you must be able to provide legal documentation of your permission of its use. Films with copyright material that do not provide this documentation will be disqualified. Each Film entered must be fishing related or orientated. Please preview your entries before shipping. Programs with time code or other defects will be disqualified.<br/>
         <b>No “Self Help”, “Instructional”,”How To”, “Lodge/Outfitter/Guide Service Promotion” films will be accepted</b>.<br/>
       </p>
+      <div>
+        <form>
+          <input type="text" placeholder="Full Name" id="name" />
+          <input type="text" placeholder="Email" id="email" />
+          <input type="text" placeholder="Website" id="website" />
+          <input type="text" placeholder="Trailer Link" id="trailer" />
+          <input type="password" placeholder="Password" id="password" />
+        </form>
+      </div>
 
 {% endblock %}
