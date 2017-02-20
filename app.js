@@ -1,14 +1,15 @@
 import express from 'express';
 import nunjucks from 'nunjucks';
+import sass from 'node-sass';
+import sassMiddleware from 'node-sass-middleware';
+
 
 const app = express();
-
-// Setup nunjucks templating engine
-
 
 app.set('port', process.env.PORT || 3000);
 
 app.use((req, res, next) => {
+
   const env = nunjucks.configure('views', {
     autoescape: true,
     express: app,
@@ -42,6 +43,14 @@ app.use((req, res, next) => {
 
   next();
 });
+
+app.use(sassMiddleware({
+  src: './views',
+  dest: './public',
+  debug: true,
+  outputStyle: 'compressed'
+}),
+express.static('./public'));
 
 // Home page
 app.get('/', (req, res) => {
