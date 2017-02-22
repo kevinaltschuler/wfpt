@@ -5,6 +5,7 @@ import sassMiddleware from 'node-sass-middleware';
 
 
 const app = express();
+require('./models/models');
 
 app.set('port', process.env.PORT || 3000);
 
