@@ -3,7 +3,7 @@ import nunjucks from 'nunjucks';
 import sass from 'node-sass';
 import sassMiddleware from 'node-sass-middleware';
 import mongoose from 'mongoose';
-const Press = mongoose.model('Press');
+import Press from './models/pressSchema';
 
 
 const app = express();
