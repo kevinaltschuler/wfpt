@@ -2,11 +2,10 @@ import express from 'express';
 import nunjucks from 'nunjucks';
 import sass from 'node-sass';
 import sassMiddleware from 'node-sass-middleware';
-import './views/Tour/tour.js';
 
 
 const app = express();
-var models = require('./models/models');
+require('./models/models');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -34,8 +33,7 @@ app.use((req, res, next) => {
     let store = {};
     return {
       getItem: (key) => store[key],
-      setItem: (key
-          , value) => { store[key] = value; },
+      setItem: (key, value) => { store[key] = value; },
       removeItem: (key) => { delete store[key]; },
       clear: () => { store = {}; },
     };
@@ -75,6 +73,15 @@ app.get('/specials', (req, res) => {
 app.get('/submit', (req, res) => {
     res.render('Submit/submit.html', {
         page: 'submit',
+        port: app.get('port'),
+    });
+});
+
+// tour
+app.get('/tour', (req, res) => {
+
+    res.render('Tour/tour.html', {
+        page: 'tour',
         port: app.get('port'),
     });
 });
