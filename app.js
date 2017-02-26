@@ -5,7 +5,7 @@ import sassMiddleware from 'node-sass-middleware';
 
 
 const app = express();
-require('./models/models');
+var models = require('./models/models');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -33,7 +33,8 @@ app.use((req, res, next) => {
     let store = {};
     return {
       getItem: (key) => store[key],
-      setItem: (key, value) => { store[key] = value; },
+      setItem: (key
+          , value) => { store[key] = value; },
       removeItem: (key) => { delete store[key]; },
       clear: () => { store = {}; },
     };

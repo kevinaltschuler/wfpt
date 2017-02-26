@@ -8,10 +8,12 @@ connection.once('open', function() {
 
 var tourModel = require('./tourSchema');
 var trailerModel = require('./trailerSchema');
+var pressModel = require('./pressSchema');
 
 var models = {
     tour: tourModel,
-    trailerModel: trailerModel
+    trailer: trailerModel,
+    press: pressModel
 };
 
 module.exports = models;
