@@ -1,0 +1,8 @@
+{
+  "connections": {
+    "WFPT": {
+      "connection_string": "mongodb://localhost/WFPTTest",
+      "connection_options": {}
+    }
+  }
+}
