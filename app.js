@@ -2,6 +2,7 @@ import express from 'express';
 import nunjucks from 'nunjucks';
 import sass from 'node-sass';
 import sassMiddleware from 'node-sass-middleware';
+import './views/Tour/tour.js';
 
 
 const app = express();
@@ -54,19 +55,11 @@ app.use(sassMiddleware({
 express.static('./public'));
 
 // Home page
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
   res.render('Home/home.html', {
     page: 'home',
     port: app.get('port'),
   });
-});
-
-// tour dates
-app.get('/tour', (req, res) => {
-    res.render('Tour/tour.html', {
-        page: 'tour',
-        port: app.get('port'),
-    });
 });
 
 // specials

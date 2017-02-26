@@ -30,11 +30,11 @@
         <br>
       </div>
     </nav>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <nav class="navbar">
+    <nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
+      <nav id="nav" class="navbar">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/home">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/tour">Tour</a>
@@ -55,6 +55,14 @@
       </nav>
       <hr>
     </nav>
+
+    <script>
+    // add active class to nav link if pathname matches
+    $(function() {
+      $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+      console.log(location.pathname.split("/")[1])
+    });
+    </script>
 
     {% block body %}
     {% endblock %}
