@@ -1,14 +1,14 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/Users/User/n/bin/node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@3.10.9
-3 info using node@v6.9.2
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.4
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle express-nunjucks-boilerplate@0.0.1~prestart: express-nunjucks-boilerplate@0.0.1
 6 silly lifecycle express-nunjucks-boilerplate@0.0.1~prestart: no script for prestart, continuing
 7 info lifecycle express-nunjucks-boilerplate@0.0.1~start: express-nunjucks-boilerplate@0.0.1
 8 verbose lifecycle express-nunjucks-boilerplate@0.0.1~start: unsafe-perm in lifecycle true
-9 verbose lifecycle express-nunjucks-boilerplate@0.0.1~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/User/git/wfpt/node_modules/.bin:/usr/local/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Users/User/google-cloud-sdk/bin:/Users/User/.rvm/gems/ruby-2.3.0/bin:/Users/User/.rvm/gems/ruby-2.3.0@global/bin:/Users/User/.rvm/rubies/ruby-2.3.0/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/User/local/bin:/Users/User/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/local/bin:/Users/User/.rvm/bin:/usr/local/bin:/usr/local/bin:/Users/User/.rvm/bin:/usr/local/opt/android-sdk/tools:/usr/local/opt/android-sdk/platform-tools:/Users/User/.rvm/bin:/Users/User/n/bin
-10 verbose lifecycle express-nunjucks-boilerplate@0.0.1~start: CWD: /Users/User/git/wfpt
+9 verbose lifecycle express-nunjucks-boilerplate@0.0.1~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/MaxRais/Desktop/Desktop/Northeastern/Junior Year/Jobs/wfpt/wfpt/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+10 verbose lifecycle express-nunjucks-boilerplate@0.0.1~start: CWD: /Users/MaxRais/Desktop/Desktop/Northeastern/Junior Year/Jobs/wfpt/wfpt
 11 silly lifecycle express-nunjucks-boilerplate@0.0.1~start: Args: [ '-c', 'babel-node app.js --presets es2015' ]
 12 silly lifecycle express-nunjucks-boilerplate@0.0.1~start: Returned: code: 1  signal: null
 13 info lifecycle express-nunjucks-boilerplate@0.0.1~start: Failed to exec start script
@@ -23,11 +23,11 @@
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid express-nunjucks-boilerplate@0.0.1
-16 verbose cwd /Users/User/git/wfpt
-17 error Darwin 15.6.0
-18 error argv "/Users/User/n/bin/node" "/usr/local/bin/npm" "start"
-19 error node v6.9.2
-20 error npm  v3.10.9
+16 verbose cwd /Users/MaxRais/Desktop/Desktop/Northeastern/Junior Year/Jobs/wfpt/wfpt
+17 error Darwin 16.4.0
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+19 error node v6.9.4
+20 error npm  v3.10.10
 21 error code ELIFECYCLE
 22 error express-nunjucks-boilerplate@0.0.1 start: `babel-node app.js --presets es2015`
 22 error Exit status 1

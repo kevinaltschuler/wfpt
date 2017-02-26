@@ -3,6 +3,8 @@ import nunjucks from 'nunjucks';
 import sass from 'node-sass';
 import sassMiddleware from 'node-sass-middleware';
 import mongoose from 'mongoose';
+import Tour from './models/tourSchema';
+import Trailer from './models/trailerSchema';
 import Press from './models/pressSchema';
 
 
@@ -57,11 +59,17 @@ express.static('./public'));
 
 // Home page
 app.get('/home', (req, res) => {
-  res.render('Home/home.html', {
-    page: 'home',
-    port: app.get('port'),
-    press: Press.find(),
-  });
+    Press.find( (err, presses) => {
+        if(err) {
+            console.log(err);
+        }
+
+        res.render('Home/home.html', {
+            page: 'home',
+            port: app.get('port'),
+            presses: presses
+        });
+    });
 });
 
 // specials
@@ -82,18 +90,31 @@ app.get('/submit', (req, res) => {
 
 // tour
 app.get('/tour', (req, res) => {
+    Tour.find( (err, tours) => {
+        if(err) {
+            console.log(err);
+        }
 
-    res.render('Tour/tour.html', {
-        page: 'tour',
-        port: app.get('port'),
+        res.render('Tour/tour.html', {
+            page: 'tour',
+            port: app.get('port'),
+            tours: tours
+        });
     });
 });
 
 // watch trailers
 app.get('/watch', (req, res) => {
-    res.render('Watch/watch.html', {
-        page: 'watch',
-        port: app.get('port'),
+    Trailer.find( (err, trailers) => {
+        if(err) {
+            console.log(err);
+        }
+
+        res.render('Watch/watch.html', {
+            page: 'watch',
+            port: app.get('port'),
+            trailers: trailers
+        });
     });
 });
 
