@@ -2,6 +2,8 @@ import express from 'express';
 import nunjucks from 'nunjucks';
 import sass from 'node-sass';
 import sassMiddleware from 'node-sass-middleware';
+import mongoose from 'mongoose';
+const Press = mongoose.model('Press');
 
 
 const app = express();
@@ -58,6 +60,7 @@ app.get('/home', (req, res) => {
   res.render('Home/home.html', {
     page: 'home',
     port: app.get('port'),
+    press: Press.find(),
   });
 });
 
