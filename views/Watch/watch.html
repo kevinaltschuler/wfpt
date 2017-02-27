@@ -5,6 +5,10 @@
 <div>
     <h1>Latest Tour Flix</h1>
     <h2>2017 trailers on the way!</h2>
+
+    {% for trailer in trailers %}
+        {{trailer}}
+    {% endfor %}
 </div>
 
 {% endblock %}
