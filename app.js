@@ -4,6 +4,9 @@ import sass from 'node-sass';
 import sassMiddleware from 'node-sass-middleware';
 import mongoose from 'mongoose';
 import Press from './models/pressSchema';
+import submitBlocks from './submitBlocks';
+import specialBlocks from './specialBlocks';
+import homeBlocks from './homeBlocks';
 
 
 const app = express();
@@ -61,6 +64,7 @@ app.get('/home', (req, res) => {
     page: 'home',
     port: app.get('port'),
     press: Press.find(),
+    blocks: homeBlocks,
   });
 });
 
@@ -69,6 +73,7 @@ app.get('/specials', (req, res) => {
   res.render('Specials/specials.html', {
     page: 'specials',
     port: app.get('port'),
+    blocks: specialBlocks
   });
 });
 
@@ -77,6 +82,7 @@ app.get('/submit', (req, res) => {
     res.render('Submit/submit.html', {
         page: 'submit',
         port: app.get('port'),
+        blocks: submitBlocks
     });
 });
 

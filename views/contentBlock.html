@@ -1,0 +1,10 @@
+{% macro contentBlock(title="", content="") %}
+    <div class="content-block">
+        <h3 class="title">
+            {{ title }}
+        </h3>
+        <div class="content">
+            {{ content | safe }}
+        </div>
+    </div>
+{% endmacro %}

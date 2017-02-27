@@ -1,0 +1,8 @@
+{% macro headerBlock(image='', text='', value='', type='text') %}
+    <div class="header-block" style="background-image: {{image}};">
+        <div class="text">
+          {{ text }}
+        </div>
+        <div class="dark-overlay"></div>
+    </div>
+{% endmacro %}
