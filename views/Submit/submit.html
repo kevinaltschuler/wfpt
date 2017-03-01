@@ -1,25 +1,85 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  {{ super() }}
-  {% set demoImageSrc = 'url("https://i.ytimg.com/vi/_JBll3kYQjo/maxresdefault.jpg")' %}
-  {{ headerBlock(image=demoImageSrc, text="Let's See Yours") }}
-  <div class="content-block">
-    <form>
-      <input type="text" placeholder="Full Name" id="name" />
-      <input type="text" placeholder="Email" id="email" />
-      <input type="text" placeholder="Website" id="website" />
-      <input type="text" placeholder="Trailer Link" id="trailer" />
-      <input type="password" placeholder="Password" id="password" />
-    </form>
-  </div>
-  {% for block in blocks %}
-    {{
-      contentBlock(
-        title=block.title,
-        content=block.content
-      )
-    }}
-  {% endfor %}
+    {{ super() }}
+    {% set demoImageSrc = 'url("https://i.ytimg.com/vi/_JBll3kYQjo/maxresdefault.jpg")' %}
+    {{ headerBlock(image=demoImageSrc, text="Let's See Yours") }}
+    <div class="content-block content-block-submit">
+        <div class="submit-fields-column">
+            <div class="two-column">
+                <form class="form-items">
+                    <p>
+                      <strong>Your Info</strong>
+                    </p>
+                    <div class="form-group">
+                        <label for="fullNameInput">Full Name</label>
+                        <input type="text" class="form-control" id="fullNameInput" aria-describedby="fullNameInput" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailInput">Email address</label>
+                        <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="jerry-danglesmack@website.com">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneInput">Phone</label>
+                        <input class="form-control" id="phoneInput" aria-describedby="phoneInputHelp" placeholder="555-555-5555">
+                    </div>
+                    <div class="form-group">
+                        <label for="websiteInput">Webite</label>
+                        <input class="form-control" id="websiteInput" aria-describedby="websiteInputHelp" placeholder="https://website.com">
+                        <small id="websiteInputHelp" class="form-text text-muted">Your personal website</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="trailerInput">Trailer Link</label>
+                        <input class="form-control" id="trailerInput" aria-describedby="tailerInputHelp" placeholder="https://website.com/v?=videoId">
+                        <small id="tailerInputHelp" class="form-text text-muted">Link to your video</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordInput">Password</label>
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <div class="right-column">
+                    <p>
+                      <strong>Short Form Rules</strong>
+                    </p>
+                    <ul>
+                      <li>All submission must be original content not released on DVD/Internet prior to May 30, 2017</li>
+                      <hr />
+                      <li>Entries cannot be in another Fly Fishing Film Festival being shown in US or Canada during the 2016 or 2017 Calendar Year.</li>
+                      <hr />
+                      <li>All entries must have all copyrighted materials cleared and documented</li>
+                      <hr />
+                      <li>Entries must have a release date, copyright date or airdate during calendar year, 2016 or 2017.</li>
+                      <hr />
+                      <li>Multiple entries will be accepted</li>
+                      <hr />
+                      <li>Entries received must include a completed Entry Form and copy of the film.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% for block in blocks %}
+        {% if loop.index % 2 == 0 %}
+            {{
+                contentBlock(
+                    title=block.title,
+                    content=block.content,
+                    extraClass="even"
+                )
+            }}
+        {% else %}
+            {{
+                contentBlock(
+                    title=block.title,
+                    content=block.content,
+                    extraClass="odd"
+                )
+            }}
+        {% endif %}
+    {% endfor %}
 
 {% endblock %}

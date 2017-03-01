@@ -1,5 +1,5 @@
-{% macro contentBlock(title="", content="") %}
-    <div class="content-block">
+{% macro contentBlock(title="", content="", extraClass="") %}
+    <div class="{{'content-block ' + extraClass }}">
         <h3 class="title">
             {{ title }}
         </h3>

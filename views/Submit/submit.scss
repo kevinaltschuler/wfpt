@@ -1,0 +1,40 @@
+.content-block-submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .submit-fields-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 auto;
+
+        .two-column {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            .form-items {
+                min-width: 400px;
+                padding-right: 50px;
+                flex: 1;
+
+                .form-group {
+                }
+            }
+            .right-column {
+                flex: 1;
+                .right-title {
+                    margin-bottom: 20px;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        button {
+            align-self: flex-start;
+        }
+    }
+}
+
+li {
+    list-style-type: none;
+}

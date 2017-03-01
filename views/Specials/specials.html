@@ -5,22 +5,75 @@
   {% set demoImageSrc = 'url("https://i.ytimg.com/vi/_JBll3kYQjo/maxresdefault.jpg")' %}
   {{ headerBlock(image=demoImageSrc, text="Want a Private Show?") }}
 
-  {% for block in blocks %}
-    {{
-      contentBlock(
-        title=block.title,
-        content=block.content
-      )
-    }}
-  {% endfor %}
-  <div class="content-block">
-      <h2>Host a City Request</h2>
-      <form>
-        <input type="text" placeholder="Full Name" id="name" />
-        <input type="text" placeholder="Email" id="email" />
-        <input type="text" placeholder="Address" id="address" />
-        <input type="number" placeholder="Phone" id="phone" />
-        <input type="text" placeholder="Organization" id="org" />
-      </form>
+  <div class="content-block content-block-submit even">
+      <div class="submit-fields-column">
+          <div class="two-column">
+              <form class="form-items">
+                  <p>
+                    <strong>Host a city request</strong>
+                  </p>
+                  <div class="form-group">
+                      <label for="fullNameInput">Full Name</label>
+                      <input type="text" class="form-control" id="fullNameInput" aria-describedby="fullNameInput" placeholder="John Doe">
+                  </div>
+                  <div class="form-group">
+                      <label for="emailInput">Email address</label>
+                      <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="jerry-danglesmack@website.com">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                      <label for="phoneInput">Phone</label>
+                      <input class="form-control" id="phoneInput" aria-describedby="phoneInputHelp" placeholder="555-555-5555">
+                  </div>
+                  <div class="form-group">
+                      <label for="addressInput">Address</label>
+                      <input class="form-control" id="addressInput" aria-describedby="addressInputHelp" placeholder="127 main st. Boston, MA">
+                      <small id="addressInputHelp" class="form-text text-muted">Address of the venue</small>
+                  </div>
+                  <div class="form-group">
+                      <label for="organizationInput">Organization</label>
+                      <input class="form-control" id="organizationInput"placeholder="Acme Co.">
+                  </div>
+                  <br />
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              <div class="right-column">
+                  <p>
+                    <strong>Working with us comes with benefits</strong>
+                  </p>
+                  <ul>
+                      <li>The ULTIMATE PROGRAM for fundraising opportunity and delivering localized awareness.</li>
+                      <hr />
+                      <li>Host your own unique show exclusive to your market!</li>
+                      <hr />
+                      <li><strong>Benefits Include:</strong> Increased Membership, Access to Like-Minded Outdoorsman, Increased Database, Local Awareness, Fundraising, Raffles, Door Prizes, Silent Auctions, National Advertising, Custom Posters and Flyers, Email Marketing, Online Ticketing, Swag and Much More!</li>
+                      <hr />
+                      <li>Work with the biggest names, the best films, the most established brand, the original and world’s largest… Fly Fishing Film Tour.</li>
+                      <hr />
+                      <li><strong>Contact Us:</strong> affiliate@mayflymedia.com – 303.815.1070<br></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
   </div>
+
+  {% for block in blocks %}
+      {% if loop.index % 2 == 1 %}
+          {{
+              contentBlock(
+                  title=block.title,
+                  content=block.content,
+                  extraClass="odd"
+              )
+          }}
+      {% else %}
+          {{
+              contentBlock(
+                  title=block.title,
+                  content=block.content,
+                  extraClass="even"
+              )
+          }}
+      {% endif %}
+  {% endfor %}
 {% endblock %}

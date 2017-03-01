@@ -1,14 +1,16 @@
 {% extends 'layout.html' %}
+{% from "./trailer-card.html" import trailerCard %}
 
 {% block body %}
 {{ super() }}
 <div>
-    <h1>Latest Tour Flix</h1>
-    <h2>2017 trailers on the way!</h2>
-
-    {% for trailer in trailers %}
-        {{trailer}}
-    {% endfor %}
+    {% set demoImageSrc = 'url("https://i.ytimg.com/vi/_JBll3kYQjo/maxresdefault.jpg")' %}
+    {{ headerBlock(image=demoImageSrc, text="Latest Tour Flix") }}
+    <div class="content-block even">
+        {% for trailer in trailers %}
+            {{  trailerCard(trailer)  }}
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

@@ -15,17 +15,6 @@ export default [
     `,
   },
   {
-    title: 'Request a Show',
-    content: `
-      <h3>Working with us comes with benefits</h3>
-      <h4>The ULTIMATE PROGRAM for fundraising opportunity and delivering localized awareness.</h4>
-      <h5>Host your own unique show exclusive to your market!</h5>
-      <p><strong>Benefits Include:</strong> Increased Membership, Access to Like-Minded Outdoorsman, Increased Database, Local Awareness, Fundraising, Raffles, Door Prizes, Silent Auctions, National Advertising, Custom Posters and Flyers, Email Marketing, Online Ticketing, Swag and Much More!</p>
-      <p>Work with the biggest names, the best films, the most established brand, the original and world’s largest… Fly Fishing Film Tour.</p>
-      <p><strong>Contact Us:</strong> affiliate@mayflymedia.com – 303.815.1070<br></p>
-    `,
-  },
-  {
     title: 'CASH AWARDS',
     content: `
       <ul>

@@ -27,12 +27,19 @@
 .content-block {
   display: flex;
   flex-direction: column;
-  margin: 50px 100px;
+  padding: 50px 100px;
   .title {
     margin-bottom: 50px;
     font-weight: bold;
   }
   .content {
 
+  }
+
+  &.odd {
+    background-color: #f7f7f7;
+  }
+  &.even {
+    background-color: white;
   }
 }

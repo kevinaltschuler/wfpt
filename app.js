@@ -119,7 +119,34 @@ app.get('/watch', (req, res) => {
         res.render('Watch/watch.html', {
             page: 'watch',
             port: app.get('port'),
-            trailers: trailers
+            trailers: [{
+                name: 'name',
+                date: Date.now(),
+                votes: 123123,
+                link: 'https://www.youtube.com/watch?v=p9nqQuu4lmQ',
+                category: {
+                    type: 'Video',
+                    enum: ['Photo', 'Video']
+                }
+            },{
+                name: 'name',
+                date: Date.now(),
+                votes: 123123,
+                link: 'https://www.youtube.com/watch?v=p9nqQuu4lmQ',
+                category: {
+                    type: 'Video',
+                    enum: ['Photo', 'Video']
+                }
+            },{
+                name: 'name',
+                date: Date.now(),
+                votes: 123123,
+                link: 'https://www.youtube.com/watch?v=p9nqQuu4lmQ',
+                category: {
+                    type: 'Video',
+                    enum: ['Photo', 'Video']
+                }
+            }]
         });
     });
 });
