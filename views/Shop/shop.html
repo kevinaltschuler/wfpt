@@ -3,8 +3,14 @@
 {% block body %}
 {{ super() }}
 <div>
-    <h1>Buy Our Stuff</h1>
-    <h2>Shop items on their way!</h2>
+    {% set demoImageSrc = 'url("https://i.ytimg.com/vi/_JBll3kYQjo/maxresdefault.jpg")' %}
+    {{ headerBlock(image=demoImageSrc, text="Buy Our Stuff") }}
+
+    <div class='content-block'>
+        <h3 class="title">
+            Shop items coming soon!
+        </h3>
+    </div>
 </div>
 
 {% endblock %}
