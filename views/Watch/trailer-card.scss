@@ -2,4 +2,39 @@
     flex-direction: row;
     margin-top: 20px;
     margin-bottom: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0,0,0,.03);
+        .card-img-top {
+            background-size: 160%;
+        }
+    }
+
+    .card-title {
+        font-size: 32px;
+    }
+
+    .card-text {
+        font-size: 16px;
+        font-weight: 300;
+        color: #888;
+    }
+
+    .card-img-top {
+        border-radius: 0;
+        flex: 1;
+        min-width: 300px;
+        background-position: center;
+        background-size: 150%;
+        transition: .1s background-size ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .material-icons {
+            color: white;
+            font-size: 56px;
+        }
+    }
 }
