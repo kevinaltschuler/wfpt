@@ -1,10 +1,15 @@
 {% extends 'layout.html' %}
+{% from "./tour-card.html" import tourCard %}
 
 {% block body %}
 {{ super() }}
 <div>
-    <h1>Show Stops and Tix</h1>
-    <h2>2017 tour dates coming soon!</h2>
+    {% set demoImageSrc = 'url("http://betoclock.com/wp-content/uploads/2015/11/lolstaples-1024x544.jpg")' %}
+    {{ headerBlock(image=demoImageSrc, text="Show Stops and Tix") }}
+
+    {% for tour in tours %}
+    {{  tourCard(tour)  }}
+    {% endfor %}
 </div>
 
 {% endblock %}
