@@ -1,0 +1,12 @@
+{% macro pressCard(press={}) %}
+    <div class="card press-card">
+        <img class="card-img-top" src="https://img.youtube.com/vi/p9nqQuu4lmQ/0.jpg" alt="Card image cap">
+        <div class="card-block">
+            <h4 class="card-title">{{press.title}}</h4>
+            <p class="card-text">
+                {{press.description}}
+            </p>
+            <a href="{{press.link}}" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+{% endmacro %}
