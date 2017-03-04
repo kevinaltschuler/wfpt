@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% import "../bootstrap-helpers/media/carousel/carousel.html" as carousel %}
+{% from "./press-card.html" import pressCard %}
 
 {% block body %}
     {{ super() }}
@@ -23,5 +24,16 @@
             )
           }}
         {% endfor %}
+
+        <div class='content-block'>
+            <h3 class="title">
+                Who's talking about us?
+            </h3>
+            <div class="content content-block even">
+                {% for press in presses %}
+                {{  pressCard(press)  }}
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}
