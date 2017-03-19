@@ -62,7 +62,7 @@ express.static('./public'));
 
 app.get('/', (req, res) => {
     res.redirect('/home');
-})
+});
 
 // Home page
 app.get('/home', (req, res) => {
