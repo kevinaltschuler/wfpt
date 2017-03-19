@@ -159,6 +159,14 @@ app.get('/shop', (req, res) => {
     });
 });
 
+// Admin tools
+app.get('/admin', (req, res) => {
+    res.render('Admin/admin.html', {
+        page: 'admin',
+        port: app.get('port'),
+    });
+});
+
 // Kick start our server
 app.listen(app.get('port'), () => {
   console.log('Server started on port', app.get('port'));
