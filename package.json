@@ -24,6 +24,7 @@
   "homepage": "https://github.com/iamstuartwilson/express-nunjucks-boilerplate",
   "dependencies": {
     "admin-mongo": "0.0.22",
+    "body-parser": "^1.17.1",
     "express": "^4.12.4",
     "mongodb": "^2.2.24",
     "mongoose": "^4.8.4",

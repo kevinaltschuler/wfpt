@@ -5,31 +5,31 @@
 
 <div>
 <h2>Tour Stops</h2>
-<form id="tourForm">
-    <input type="text" placeholder="Location" />
-    <input type="date" placeholder="Date" />
-    <input type="number" placeholder="Tickets Available" />
-    <button onclick="addTour()" type="submit">Add</button>
+<form id="tourForm" action="/addTour" method="POST">
+    <input id="tourLoc" type="text" placeholder="Location" />
+    <input id="tourDate" type="date" placeholder="Date" />
+    <input id="tickets" type="number" placeholder="Tickets Available" />
+    <button type="submit">Add</button>
 </form>
 
 <h2>Trailers</h2>
-<form id="trailerForm">
-    <input type="text" placeholder="Name" />
-    <input type="date" placeholder="Date" />
-    <input type="text" placeholder="Trailer link" />
-    <input type="text" placeholder="Photo or video" />
-    <button onclick="addTrailer()" type="submit">Add</button>
+<form id="trailerForm" action="/addTrailer" method="POST">
+    <input id="trailerName" type="text" placeholder="Name" />
+    <input id="trailerDate" type="date" placeholder="Date" />
+    <input id="trailerLink" type="text" placeholder="Trailer link" />
+    <input id="trailerType" type="text" placeholder="Photo or video" />
+    <button type="submit">Add</button>
 </form>
 
 <h2>Press Releases</h2>
-<form id="pressForm">
-    <input type="text" placeholder="Name" />
-    <input type="date" placeholder="Date" />
-    <input type="text" aria-multiline="true" placeholder="Description" />
-    <input type="url" placeholder="Link" />
+<form id="pressForm" action="/addPress" method="POST">
+    <input id="pressTitle" type="text" placeholder="Title" />
+    <input id="pressDate" type="date" placeholder="Date" />
+    <input id="pressDes" type="text" aria-multiline="true" placeholder="Description" />
+    <input id="pressLink" type="url" placeholder="Link" />
     <label>Thumbnail</label>
-    <input type="file" placeholder="Thumbnail image" />
-    <button onclick="addPress()" type="submit">Add</button>
+    <input id="pressThumb" type="file" placeholder="Thumbnail image" />
+    <button type="submit">Add</button>
 </form>
 </div>
 
@@ -40,14 +40,41 @@
 
     function addTour() {
         console.log("tour");
+        var location = document.forms["tourForm"]["tourLoc"].value;
+        var date = document.forms["tourForm"]["tourDate"].value;
+        var tickets = document.forms["tourForm"]["tickets"].value;
+
+        console.log(location);
+        console.log(date);
+        console.log(tickets);
     }
 
     function addTrailer() {
         console.log("trailer");
+        var name = document.forms["trailerForm"]["trailerName"].value;
+        var date = document.forms["trailerForm"]["trailerDate"].value;
+        var link = document.forms["trailerForm"]["trailerLink"].value;
+        var type = document.forms["trailerForm"]["trailerType"].value;
+
+        console.log(name);
+        console.log(date);
+        console.log(link);
+        console.log(type);
     }
 
     function addPress() {
         console.log("press");
+        var title = document.forms["pressForm"]["pressTitle"].value;
+        var date = document.forms["pressForm"]["pressDate"].value;
+        var description = document.forms["pressForm"]["pressDes"].value;
+        var link = document.forms["pressForm"]["pressLink"].value;
+        var thumbnail = document.forms["pressForm"]["pressThumb"].value;
+
+        console.log(title);
+        console.log(date);
+        console.log(description);
+        console.log(link);
+        console.log(thumbnail);
     }
 
 </script>

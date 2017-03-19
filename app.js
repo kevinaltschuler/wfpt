@@ -3,6 +3,7 @@ import nunjucks from 'nunjucks';
 import sass from 'node-sass';
 import sassMiddleware from 'node-sass-middleware';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 import Tour from './models/tourSchema';
 import Trailer from './models/trailerSchema';
 import Press from './models/pressSchema';
@@ -12,7 +13,9 @@ import homeBlocks from './homeBlocks';
 
 
 const app = express();
-require('./models/models');
+const models = require('./models/models');
+
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('port', process.env.PORT || 3000);
 
@@ -159,11 +162,65 @@ app.get('/shop', (req, res) => {
     });
 });
 
+const addTour = () => {
+    console.log("tour");
+    var location = document.forms["tourForm"]["tourLoc"].value;
+    var date = document.forms["tourForm"]["tourDate"].value;
+    var tickets = document.forms["tourForm"]["tickets"].value;
+
+    console.log(location);
+    console.log(date);
+    console.log(tickets);
+};
+
+const addTrailer = () => {
+    console.log("trailer");
+    var name = document.forms["trailerForm"]["trailerName"].value;
+    var date = document.forms["trailerForm"]["trailerDate"].value;
+    var link = document.forms["trailerForm"]["trailerLink"].value;
+    var type = document.forms["trailerForm"]["trailerType"].value;
+
+    console.log(name);
+    console.log(date);
+    console.log(link);
+    console.log(type);
+};
+
+const addPress = () => {
+    console.log("press");
+    var title = document.forms["pressForm"]["pressTitle"].value;
+    var date = document.forms["pressForm"]["pressDate"].value;
+    var description = document.forms["pressForm"]["pressDes"].value;
+    var link = document.forms["pressForm"]["pressLink"].value;
+    var thumbnail = document.forms["pressForm"]["pressThumb"].value;
+
+    console.log(title);
+    console.log(date);
+    console.log(description);
+    console.log(link);
+    console.log(thumbnail);
+};
+
+app.post('/addTour', (req, res) => {
+    console.log(req.body);
+});
+
+app.post('/addTrailer', (req, res) => {
+    console.log(req.body)
+});
+
+app.post('/addPress', (req, res) => {
+    console.log(req.body)
+});
+
 // Admin tools
 app.get('/admin', (req, res) => {
     res.render('Admin/admin.html', {
         page: 'admin',
         port: app.get('port'),
+        addTour: addTour,
+        addTrailer: addTrailer,
+        addPress: addPress
     });
 });
 
