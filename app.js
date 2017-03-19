@@ -126,34 +126,7 @@ app.get('/watch', (req, res) => {
         res.render('Watch/watch.html', {
             page: 'watch',
             port: app.get('port'),
-            trailers: [{
-                name: 'name',
-                date: Date.now(),
-                votes: 123123,
-                link: 'https://www.youtube.com/watch?v=p9nqQuu4lmQ',
-                category: {
-                    type: 'Video',
-                    enum: ['Photo', 'Video']
-                }
-            },{
-                name: 'name',
-                date: Date.now(),
-                votes: 123123,
-                link: 'https://www.youtube.com/watch?v=p9nqQuu4lmQ',
-                category: {
-                    type: 'Video',
-                    enum: ['Photo', 'Video']
-                }
-            },{
-                name: 'name',
-                date: Date.now(),
-                votes: 123123,
-                link: 'https://www.youtube.com/watch?v=p9nqQuu4lmQ',
-                category: {
-                    type: 'Video',
-                    enum: ['Photo', 'Video']
-                }
-            }]
+            trailers: trailers
         });
     });
 });
@@ -166,55 +139,61 @@ app.get('/shop', (req, res) => {
     });
 });
 
-const addTour = () => {
-    console.log("tour");
-    var location = document.forms["tourForm"]["tourLoc"].value;
-    var date = document.forms["tourForm"]["tourDate"].value;
-    var tickets = document.forms["tourForm"]["tickets"].value;
-
-    console.log(location);
-    console.log(date);
-    console.log(tickets);
-};
-
-const addTrailer = () => {
-    console.log("trailer");
-    var name = document.forms["trailerForm"]["trailerName"].value;
-    var date = document.forms["trailerForm"]["trailerDate"].value;
-    var link = document.forms["trailerForm"]["trailerLink"].value;
-    var type = document.forms["trailerForm"]["trailerType"].value;
-
-    console.log(name);
-    console.log(date);
-    console.log(link);
-    console.log(type);
-};
-
-const addPress = () => {
-    console.log("press");
-    var title = document.forms["pressForm"]["pressTitle"].value;
-    var date = document.forms["pressForm"]["pressDate"].value;
-    var description = document.forms["pressForm"]["pressDes"].value;
-    var link = document.forms["pressForm"]["pressLink"].value;
-    var thumbnail = document.forms["pressForm"]["pressThumb"].value;
-
-    console.log(title);
-    console.log(date);
-    console.log(description);
-    console.log(link);
-    console.log(thumbnail);
-};
-
 app.post('/addTour', (req, res) => {
-    console.log(req.body);
+    var Tour = models.tour;
+
+    var t = new Tour({
+        location: req.body.location,
+        date: req.body.date,
+        ticketsAvailable: req.body.ticketsAvailable,
+        ticketsSold: 0
+    });
+
+    t.save(function(err) {
+        if (err) throw err;
+
+        console.log('saved successfully!');
+        res.redirect('/admin');
+    });
 });
 
 app.post('/addTrailer', (req, res) => {
-    console.log(req.body)
+    var Trailer = models.trailer;
+
+    var t = new Trailer({
+        name: req.body.name,
+        date: req.body.date,
+        votes: 0,
+        link: req.body.link,
+        description: req.body.description,
+        category: req.body.category
+    });
+
+    t.save(function(err) {
+        if (err) throw err;
+
+        console.log('saved successfully!');
+        res.redirect('/admin');
+    });
 });
 
 app.post('/addPress', (req, res) => {
-    console.log(req.body)
+    var Press = models.press;
+
+    var p = new Press({
+        title: req.body.title,
+        date: req.body.date,
+        description: req.body.description,
+        link: req.body.link,
+        thumb: req.body.thumb
+    });
+
+    p.save(function(err) {
+        if (err) throw err;
+
+        console.log('saved successfully!');
+        res.redirect('/admin');
+    });
 });
 
 // Admin tools
@@ -222,9 +201,6 @@ app.get('/admin', (req, res) => {
     res.render('Admin/admin.html', {
         page: 'admin',
         port: app.get('port'),
-        addTour: addTour,
-        addTrailer: addTrailer,
-        addPress: addPress
     });
 });
 

@@ -5,6 +5,7 @@ var trailerSchema  = mongoose.Schema({
     date: Date,
     votes: Number,
     link: String,
+    description: String,
     category: {
         type: String,
         enum: ['Photo', 'Video']
