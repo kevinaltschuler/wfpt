@@ -29,7 +29,7 @@ export default [
       
       <h4>Tell us about your work</h4>
       <p>Each entry may not use any unauthorized copyright material including music images or film. If you have copyright material in your film you must be able to provide legal documentation of your permission of its use. Films with copyright material that do not provide proof of legal use will be immediately disqualified. Please preview your entries before shipping. Programs with defects or unacceptable language or nudity will be disqualified.</p>
-      <p><strong>PLEASE : don't try to slide a promotional video past us for a business or guide service or a taxidermist etc. Just don't do it, show us your own good stuff!!!! </strong></p>
+      <p><strong>PLEASE: Don't try to slide a promotional video past us for a business or guide service or a taxidermist etc. Just don't do it, show us your own good stuff!!!! </strong></p>
     `
   }
 ];

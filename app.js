@@ -4,13 +4,13 @@ import sass from 'node-sass';
 import sassMiddleware from 'node-sass-middleware';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import nodemailer from 'nodemailer';
 import Tour from './models/tourSchema';
 import Trailer from './models/trailerSchema';
 import Press from './models/pressSchema';
 import submitBlocks from './submitBlocks';
 import specialBlocks from './specialBlocks';
 import homeBlocks from './homeBlocks';
-
 
 const app = express();
 const models = require('./models/models');
@@ -201,6 +201,81 @@ app.get('/admin', (req, res) => {
     res.render('Admin/admin.html', {
         page: 'admin',
         port: app.get('port'),
+    });
+});
+
+app.use('/sendSubmission', (req, res) => {
+    const transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'wfptsubmissions@gmail.com', // Your email id
+            pass: 'waterfowler1' // Your password
+        }
+    });
+
+    const html = `
+        <p>New submission from ${req.body.fullName}</p>
+        <li>Email Address: ${req.body.email}</li>
+        <li>Phone: ${req.body.phone}</li>
+        <li>Personal Website: ${req.body.website}</li>
+        <li>Submission Link: ${req.body.submissionLink}</li>
+        <li>Password: ${req.body.password}</li>
+   `;
+
+    const mailOptions = {
+        from: 'wfptsubmissions@gmail.com', // sender address
+        to: 'max.j.rais@gmail.com', // list of receivers
+        subject: 'New Submission from ' + req.body.fullName, // Subject line
+        html: html // You can choose to send an HTML body instead
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+            res.json({yo: 'error'});
+        }
+        else{
+            console.log('Message sent: ' + info.response);
+            console.log('submission sent');
+            res.redirect('/home');
+        }
+    });
+});
+
+app.use('/sendRequest', (req, res) => {
+    const transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'wfptsubmissions@gmail.com', // Your email id
+            pass: 'waterfowler1' // Your password
+        }
+    });
+
+    const html = `
+        <p>New host request from ${req.body.fullName}</p>
+        <li>Email Address: ${req.body.email}</li>
+        <li>Phone: ${req.body.phone}</li>
+        <li>Address: ${req.body.address}</li>
+        <li>Organization: ${req.body.organization}</li>
+   `;
+
+    const mailOptions = {
+        from: 'wfptsubmissions@gmail.com', // sender address
+        to: 'max.j.rais@gmail.com', // list of receivers
+        subject: 'New Hosting Request from ' + req.body.fullName, // Subject line
+        html: html // You can choose to send an HTML body instead
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+            res.json({yo: 'error'});
+        }
+        else{
+            console.log('Message sent: ' + info.response);
+            console.log('submission sent');
+            res.redirect('/home');
+        }
     });
 });
 

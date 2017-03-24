@@ -7,36 +7,36 @@
     <div class="content-block content-block-submit">
         <div class="submit-fields-column">
             <div class="two-column">
-                <form class="form-items">
+                <form class="form-items" action="/sendSubmission" method="POST">
                     <p>
                       <strong>Your Info</strong>
                     </p>
                     <div class="form-group">
                         <label for="fullNameInput">Full Name</label>
-                        <input type="text" class="form-control" id="fullNameInput" aria-describedby="fullNameInput" placeholder="John Doe">
+                        <input type="text" class="form-control" name="fullName" id="fullNameInput" aria-describedby="fullNameInput" placeholder="John Doe">
                     </div>
                     <div class="form-group">
                         <label for="emailInput">Email address</label>
-                        <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="jerry-danglesmack@website.com">
+                        <input type="email" class="form-control" name="email" id="emailInput" aria-describedby="emailHelp" placeholder="jerry-danglesmack@website.com">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
                         <label for="phoneInput">Phone</label>
-                        <input class="form-control" id="phoneInput" aria-describedby="phoneInputHelp" placeholder="555-555-5555">
+                        <input class="form-control" name="phone" id="phoneInput" aria-describedby="phoneInputHelp" placeholder="555-555-5555">
                     </div>
                     <div class="form-group">
-                        <label for="websiteInput">Webite</label>
-                        <input class="form-control" id="websiteInput" aria-describedby="websiteInputHelp" placeholder="https://website.com">
+                        <label for="websiteInput">Website</label>
+                        <input class="form-control" name="website" id="websiteInput" aria-describedby="websiteInputHelp" placeholder="https://website.com">
                         <small id="websiteInputHelp" class="form-text text-muted">Your personal website</small>
                     </div>
                     <div class="form-group">
                         <label for="trailerInput">Trailer Link</label>
-                        <input class="form-control" id="trailerInput" aria-describedby="tailerInputHelp" placeholder="https://website.com/v?=videoId">
+                        <input class="form-control" name="submissionLink" id="trailerInput" aria-describedby="tailerInputHelp" placeholder="https://website.com/v?=videoId">
                         <small id="tailerInputHelp" class="form-text text-muted">Link to your video</small>
                     </div>
                     <div class="form-group">
                         <label for="passwordInput">Password</label>
-                        <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="passwordInput" placeholder="Password">
                     </div>
                     <br />
                     <button type="submit" class="btn btn-primary">Submit</button>
