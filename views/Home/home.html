@@ -4,32 +4,80 @@
 
 {% block body %}
     {{ super() }}
-    <div style="margin-top: 20px">
+    <div id='wfpt-home'>
 
-        {% set demoImageSrc = "http://betoclock.com/wp-content/uploads/2015/11/lolstaples-1024x544.jpg" %}
-
-        <div class='content-block'>
-            <h3 class="title">
-                Who's talking about us?
-            </h3>
-            <div class="content even">
-                <demo aria-label="Carousel with all controls (indicators and arrows)">
-                    {% call carousel.allControls() %}
-                        {{ carousel.imageItem('img 1', demoImageSrc) }}
-                        {{ carousel.imageItem('img 2', demoImageSrc) }}
-                        {{ carousel.imageItem('img 3', demoImageSrc) }}
-                    {% endcall %}
-                </demo>
+        <div class="header-block" style="background-image: url('/img/bird1.jpg');">
+            <div class="text">
+              Water Fowler Film and Photo Tour
             </div>
+            <div class="dark-overlay"></div>
         </div>
 
+        {% set demoImageSrc = "http://betoclock.com/wp-content/uploads/2015/11/lolstaples-1024x544.jpg" %}
+        <div class="home-slider">
+            <div class="slider-for">
+                <div class="slider-cell" style="background-image: url('/img/bird1.jpg')"></div>
+                <div class="slider-cell" style="background-image: url('/img/bird2.jpg')"></div>
+                <div class="slider-cell" style="background-image: url('/img/bird3.jpg')"></div>
+                <div class="slider-cell" style="background-image: url('/img/bird4.jpg')"></div>
+            </div>
+            <div class="slider-nav">
+                <div class="slider-nav-cell">
+                    <div class="bg-img" style="background-image: url('/img/bird1.jpg')"></div>
+                    <div class="dark-overlay"></div>
+                </div>
+                <div class="slider-nav-cell">
+                    <div class="bg-img" style="background-image: url('/img/bird2.jpg')"></div>
+                    <div class="dark-overlay"></div>
+                </div>
+                <div class="slider-nav-cell">
+                    <div class="bg-img" style="background-image: url('/img/bird3.jpg')"></div>
+                    <div class="dark-overlay"></div>
+                </div>
+                <div class="slider-nav-cell">
+                    <div class="bg-img" style="background-image: url('/img/bird4.jpg')"></div>
+                    <div class="dark-overlay"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.slider-for').slick({
+                 slidesToShow: 1,
+                 slidesToScroll: 1,
+                 arrows: true,
+                 fade: true,
+                 asNavFor: '.slider-nav'
+               });
+               $('.slider-nav').slick({
+                 slidesToShow: 4,
+                 slidesToScroll: 4,
+                 asNavFor: '.slider-for',
+                 dots: true,
+                 centerMode: true,
+                 focusOnSelect: true
+               });
+             });
+        </script>
+
         {% for block in blocks %}
-          {{
-            contentBlock(
-              title=block.title,
-              content=block.content
-            )
-          }}
+            {% if loop.index % 2 == 1 %}
+                {{
+                    contentBlock(
+                        title=block.title,
+                        content=block.content,
+                        extraClass="odd"
+                    )
+                }}
+            {% else %}
+                {{
+                    contentBlock(
+                        title=block.title,
+                        content=block.content,
+                        extraClass="even"
+                    )
+                }}
+            {% endif %}
         {% endfor %}
 
         <div class='content-block'>
