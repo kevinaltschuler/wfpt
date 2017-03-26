@@ -16,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
-<body>
+<body id="wfpt-body">
     <!--<nav
       class="navbar navbar-toggleable-md navbar-light bg-faded"
       style="padding: 0px;"
@@ -81,9 +81,33 @@
 
     </div>
 
-    <footer class="text-center">
+    <footer class="text-center wfpt-footer">
         <hr>
-        <p class="muted">App running on port: <code>{{ port }}</code></p>
+        <ul style="display: flex; flex-direction: row; justify-content: space-between; padding: 0 100px;">
+            <li class="nav-item bottom-nav-item">
+              <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+                <a class="nav-link" href="/tour">Tour</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+              <a class="nav-link" href="/specials">Specials</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+                <a class="nav-link" href="/watch">Trailers</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+              <a class="nav-link" href="/submit">Submit</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+                <a class="nav-link" href="/shop">Shop</a>
+            </li>
+        </ul>
+        <div class="wfpt-brand-footer">
+            <div>
+                © 2017 WATERFOWLER FILM AND PHOTO TOUR
+            </div>
+        </div>
     </footer>
 </body>
 </html>
