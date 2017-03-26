@@ -7,6 +7,7 @@
     <title>Waterfowler Film and Photo Tour</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" type="text/css" href="app.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -15,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
-<body>
+<body id="wfpt-body">
     <!--<nav
       class="navbar navbar-toggleable-md navbar-light bg-faded"
       style="padding: 0px;"
@@ -35,6 +36,7 @@
         <br>
       </div>
   </nav>-->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -79,9 +81,33 @@
 
     </div>
 
-    <footer class="text-center">
+    <footer class="text-center wfpt-footer">
         <hr>
-        <p class="muted">App running on port: <code>{{ port }}</code></p>
+        <ul style="display: flex; flex-direction: row; justify-content: space-between; padding: 0 100px;">
+            <li class="nav-item bottom-nav-item">
+              <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+                <a class="nav-link" href="/tour">Tour</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+              <a class="nav-link" href="/specials">Specials</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+                <a class="nav-link" href="/watch">Trailers</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+              <a class="nav-link" href="/submit">Submit</a>
+            </li>
+            <li class="nav-item bottom-nav-item">
+                <a class="nav-link" href="/shop">Shop</a>
+            </li>
+        </ul>
+        <div class="wfpt-brand-footer">
+            <div>
+                © 2017 WATERFOWLER FILM AND PHOTO TOUR
+            </div>
+        </div>
     </footer>
 </body>
 </html>
