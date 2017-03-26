@@ -8,31 +8,31 @@
   <div class="content-block content-block-submit even">
       <div class="submit-fields-column">
           <div class="two-column">
-              <form class="form-items">
+              <form class="form-items" action="/sendRequest" method="POST">
                   <p>
-                    <strong>Host a city request</strong>
+                    <strong>Host a show request</strong>
                   </p>
                   <div class="form-group">
                       <label for="fullNameInput">Full Name</label>
-                      <input type="text" class="form-control" id="fullNameInput" aria-describedby="fullNameInput" placeholder="John Doe">
+                      <input type="text" class="form-control" name="fullName" id="fullNameInput" aria-describedby="fullNameInput" placeholder="John Doe">
                   </div>
                   <div class="form-group">
                       <label for="emailInput">Email address</label>
-                      <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="jerry-danglesmack@website.com">
+                      <input type="email" class="form-control" name="email" id="emailInput" aria-describedby="emailHelp" placeholder="jerry-danglesmack@website.com">
                       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
                   <div class="form-group">
                       <label for="phoneInput">Phone</label>
-                      <input class="form-control" id="phoneInput" aria-describedby="phoneInputHelp" placeholder="555-555-5555">
+                      <input class="form-control" name="phone" id="phoneInput" aria-describedby="phoneInputHelp" placeholder="555-555-5555">
                   </div>
                   <div class="form-group">
                       <label for="addressInput">Address</label>
-                      <input class="form-control" id="addressInput" aria-describedby="addressInputHelp" placeholder="127 main st. Boston, MA">
+                      <input class="form-control" name="address" id="addressInput" aria-describedby="addressInputHelp" placeholder="127 main st. Boston, MA">
                       <small id="addressInputHelp" class="form-text text-muted">Address of the venue</small>
                   </div>
                   <div class="form-group">
                       <label for="organizationInput">Organization</label>
-                      <input class="form-control" id="organizationInput"placeholder="Acme Co.">
+                      <input class="form-control" name="organization" id="organizationInput"placeholder="Acme Co.">
                   </div>
                   <br />
                   <button type="submit" class="btn btn-primary">Submit</button>

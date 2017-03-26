@@ -3,6 +3,8 @@ import nunjucks from 'nunjucks';
 import sass from 'node-sass';
 import sassMiddleware from 'node-sass-middleware';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import nodemailer from 'nodemailer';
 import Tour from './models/tourSchema';
 import Trailer from './models/trailerSchema';
 import Press from './models/pressSchema';
@@ -10,9 +12,10 @@ import submitBlocks from './submitBlocks';
 import specialBlocks from './specialBlocks';
 import homeBlocks from './homeBlocks';
 
-
 const app = express();
-require('./models/models');
+const models = require('./models/models');
+
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('port', process.env.PORT || 3000);
 
@@ -123,34 +126,7 @@ app.get('/watch', (req, res) => {
         res.render('Watch/watch.html', {
             page: 'watch',
             port: app.get('port'),
-            trailers: [{
-                name: 'name',
-                date: Date.now(),
-                votes: 123123,
-                link: 'https://www.youtube.com/watch?v=p9nqQuu4lmQ',
-                category: {
-                    type: 'Video',
-                    enum: ['Photo', 'Video']
-                }
-            },{
-                name: 'name',
-                date: Date.now(),
-                votes: 123123,
-                link: 'https://www.youtube.com/watch?v=p9nqQuu4lmQ',
-                category: {
-                    type: 'Video',
-                    enum: ['Photo', 'Video']
-                }
-            },{
-                name: 'name',
-                date: Date.now(),
-                votes: 123123,
-                link: 'https://www.youtube.com/watch?v=p9nqQuu4lmQ',
-                category: {
-                    type: 'Video',
-                    enum: ['Photo', 'Video']
-                }
-            }]
+            trailers: trailers
         });
     });
 });
@@ -163,11 +139,143 @@ app.get('/shop', (req, res) => {
     });
 });
 
+app.post('/addTour', (req, res) => {
+    var Tour = models.tour;
+
+    var t = new Tour({
+        location: req.body.location,
+        date: req.body.date,
+        ticketsAvailable: req.body.ticketsAvailable,
+        ticketsSold: 0
+    });
+
+    t.save(function(err) {
+        if (err) throw err;
+
+        console.log('saved successfully!');
+        res.redirect('/admin');
+    });
+});
+
+app.post('/addTrailer', (req, res) => {
+    var Trailer = models.trailer;
+
+    var t = new Trailer({
+        name: req.body.name,
+        date: req.body.date,
+        votes: 0,
+        link: req.body.link,
+        description: req.body.description,
+        category: req.body.category
+    });
+
+    t.save(function(err) {
+        if (err) throw err;
+
+        console.log('saved successfully!');
+        res.redirect('/admin');
+    });
+});
+
+app.post('/addPress', (req, res) => {
+    var Press = models.press;
+
+    var p = new Press({
+        title: req.body.title,
+        date: req.body.date,
+        description: req.body.description,
+        link: req.body.link,
+        thumb: req.body.thumb
+    });
+
+    p.save(function(err) {
+        if (err) throw err;
+
+        console.log('saved successfully!');
+        res.redirect('/admin');
+    });
+});
+
 // Admin tools
 app.get('/admin', (req, res) => {
     res.render('Admin/admin.html', {
         page: 'admin',
         port: app.get('port'),
+    });
+});
+
+app.use('/sendSubmission', (req, res) => {
+    const transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'wfptsubmissions@gmail.com', // Your email id
+            pass: 'waterfowler1' // Your password
+        }
+    });
+
+    const html = `
+        <p>New submission from ${req.body.fullName}</p>
+        <li>Email Address: ${req.body.email}</li>
+        <li>Phone: ${req.body.phone}</li>
+        <li>Personal Website: ${req.body.website}</li>
+        <li>Submission Link: ${req.body.submissionLink}</li>
+        <li>Password: ${req.body.password}</li>
+   `;
+
+    const mailOptions = {
+        from: 'wfptsubmissions@gmail.com', // sender address
+        to: 'max.j.rais@gmail.com', // list of receivers
+        subject: 'New Submission from ' + req.body.fullName, // Subject line
+        html: html // You can choose to send an HTML body instead
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+            res.json({yo: 'error'});
+        }
+        else{
+            console.log('Message sent: ' + info.response);
+            console.log('submission sent');
+            res.redirect('/home');
+        }
+    });
+});
+
+app.use('/sendRequest', (req, res) => {
+    const transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'wfptsubmissions@gmail.com', // Your email id
+            pass: 'waterfowler1' // Your password
+        }
+    });
+
+    const html = `
+        <p>New host request from ${req.body.fullName}</p>
+        <li>Email Address: ${req.body.email}</li>
+        <li>Phone: ${req.body.phone}</li>
+        <li>Address: ${req.body.address}</li>
+        <li>Organization: ${req.body.organization}</li>
+   `;
+
+    const mailOptions = {
+        from: 'wfptsubmissions@gmail.com', // sender address
+        to: 'max.j.rais@gmail.com', // list of receivers
+        subject: 'New Hosting Request from ' + req.body.fullName, // Subject line
+        html: html // You can choose to send an HTML body instead
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+            res.json({yo: 'error'});
+        }
+        else{
+            console.log('Message sent: ' + info.response);
+            console.log('submission sent');
+            res.redirect('/home');
+        }
     });
 });
 

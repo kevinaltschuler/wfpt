@@ -5,51 +5,33 @@
 
 <div>
 <h2>Tour Stops</h2>
-<form id="tourForm">
-    <input type="text" placeholder="Location" />
-    <input type="date" placeholder="Date" />
-    <input type="number" placeholder="Tickets Available" />
-    <button onclick="addTour()" type="submit">Add</button>
+<form id="tourForm" action="/addTour" method="POST">
+    <input id="tourLoc" type="text" name="location" placeholder="Location" />
+    <input id="tourDate" type="date" name="date" placeholder="Date" />
+    <input id="tickets" type="number" name="ticketsAvailable" placeholder="Tickets Available" />
+    <button type="submit">Add</button>
 </form>
 
 <h2>Trailers</h2>
-<form id="trailerForm">
-    <input type="text" placeholder="Name" />
-    <input type="date" placeholder="Date" />
-    <input type="text" placeholder="Trailer link" />
-    <input type="text" placeholder="Photo or video" />
-    <button onclick="addTrailer()" type="submit">Add</button>
+<form id="trailerForm" action="/addTrailer" method="POST">
+    <input id="trailerName" type="text" name="name" placeholder="Name" />
+    <input id="trailerDate" type="date" name="date" placeholder="Date" />
+    <input id="trailerLink" type="text" name="link" placeholder="Trailer link" />
+    <input id="trailerDes" type="text" name="description" aria-multiline="true" placeholder="Description" />
+    <input id="trailerType" type="text" name="category" placeholder="Photo or Video" />
+    <button type="submit">Add</button>
 </form>
 
 <h2>Press Releases</h2>
-<form id="pressForm">
-    <input type="text" placeholder="Name" />
-    <input type="date" placeholder="Date" />
-    <input type="text" aria-multiline="true" placeholder="Description" />
-    <input type="url" placeholder="Link" />
+<form id="pressForm" action="/addPress" method="POST">
+    <input id="pressTitle" type="text" name="title" placeholder="Title" />
+    <input id="pressDate" type="date" name="date" placeholder="Date" />
+    <input id="pressDes" type="text" name="description" aria-multiline="true" placeholder="Description" />
+    <input id="pressLink" type="url" name="link" placeholder="Link" />
     <label>Thumbnail</label>
-    <input type="file" placeholder="Thumbnail image" />
-    <button onclick="addPress()" type="submit">Add</button>
+    <input id="pressThumb" type="file" name="thumb" placeholder="Thumbnail image" />
+    <button type="submit">Add</button>
 </form>
 </div>
-
-<script>
-
-    //var mongoose = require('mongoose');
-    //var models = require('../../models/models')
-
-    function addTour() {
-        console.log("tour");
-    }
-
-    function addTrailer() {
-        console.log("trailer");
-    }
-
-    function addPress() {
-        console.log("press");
-    }
-
-</script>
 
 {% endblock %}

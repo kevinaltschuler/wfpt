@@ -1,58 +1,35 @@
 export default [
   {
-    title: "Selected filmmakers will be entitled to the following:",
+    title: 'Final Submissions have to include:',
     content: `
-      <ul>
-        <li>Film Teaser promotion on F3T web site and Social Media</li>
-        <hr />
-        <li>Company logo or film maker photo displayed on F3T web site</li>
-        <hr />
-        <li>Film tour film submission description to be displayed on F3T web site</li>
-        <hr />
-        <li>Film Company or filmmaker bio to be displayed on F3T web site</li>
-        <hr />
-        <li>Film company or filmmaker web address to be displayed on F3T web site</li>
-        <hr />
-        <li>Filmmaker and film description to be mentioned in PR materials and press kits.</li>
-        <hr />
-        <li>Profit sharing for eligible film submissions –
-          <b>ALL SELECTED FILMMAKERS WILL RECEIVE PAYMENTS</b>
-        </li>
-        <hr />
-        <li>Inclusion on and compensation for F3T downloads via iTunes</li>
-      </ul>
-    `,
+      <li>
+        <ul>1. 1 fully edited film tour submission up to 15 minutes long (10 minutes min)</ul>
+        <ul>2. 15 second max end credits for film credits and sponsor mentions (Sponsor mentions must be at end of film in end credits only)</ul>
+        <ul>3. PLEASE!!  Super slow mo is awesome, but don't try to show a never ending shot of a piece of equipment in that format as a part of the show, a little is fine. A lot gets the gong!!! </ul>
+        <ul>4. Film Trailer up to 2.5 minutes long to be uploaded on Vimeo. Show a section of your work that will leave everyone wanting to see more, and they can appreciate your work.</ul>
+        <ul>5. At least 2 Filmmaker photos or film company logos</ul>
+        <ul>6. Photo stills from film (3 minimum)</ul>
+        <ul>7. Max 300 word description of film</ul>
+        <ul>8. Max 750 word filmmaker or company biography</ul>
+      </li>
+   `
   },
   {
-    title: 'Requirements for film submission',
+    title: 'Accepted formats:',
     content: `
-      <p>Submissions can be any length up to a 20-minute maximum, make them as long as they are good – most films are best at 10-15 minutes. They must have a story with start middle and ending.<br/>
-        Film submissions must be fly fishing related.<br/>
-        Final Submissions
-        <em>
-          <span style="text-decoration: underline">
-            <b>must</b>
-          </span>
-        </em>
-        include the following:</p>
-      <ul>
-        <li>1. Fully edited film tour submission up to 20 minutes long</li>
-        <li>2. 20 second max end credits for film credits and sponsor mentions (Sponsor mentions must be at end of film in end credits only)</li>
-        <li>3. Film Trailer up to 3 minutes long to be uploaded on Vimeo. Less is more here. The trailer should be intriguing without giving away the entire film.</li>
-        <li>4. Filmmaker photo or film company logo*</li>
-        <li>5. Photo stills from film (5 minimum)*</li>
-        <li>6. Max 500 word description of film**</li>
-        <li>7. Max 500 word filmmaker or company biography**</li>
-      </ul>
-      <hr />
-      <p>
-        <small>
-          <i>*(All Photos and stills must be submitted on DVD, Electronic Transfer Mechanism (ie DropBox or We Transfer) or email in print quality resolution &amp; format, 300 DPI in JPG TIF or EPS)</i>
-        </small><br/>
-        <small>
-          <i>**(Film description and filmmaker or company biography must be submitted as a typed word document .doc)</i>
-        </small><br/>
-      </p>
-    `,
+      <h4>Short film/video</h4>
+      <li>
+        <ul>Uncompressed file delivered on Hard Drive / Flash Drive / Electronic Transfer Mechanism</ul>
+        <ul>HD quality 1920×1080– PRORES 422 (or other HD Codec)</ul>
+        <ul>Preferred Frame Rate – 23.98 (24p)</ul>
+      </li>
+      
+      <h4>Photo</h4>
+      <p>*(All Photos and stills must be submitted on DVD,  or email in print quality resolution & format, 300 DPI in JPG TIF or EPS) or on memory card provided by applicant. Multiples of the original submission are suggested in case of corrupted media or transfer.</p>
+      
+      <h4>Tell us about your work</h4>
+      <p>Each entry may not use any unauthorized copyright material including music images or film. If you have copyright material in your film you must be able to provide legal documentation of your permission of its use. Films with copyright material that do not provide proof of legal use will be immediately disqualified. Please preview your entries before shipping. Programs with defects or unacceptable language or nudity will be disqualified.</p>
+      <p><strong>PLEASE: Don't try to slide a promotional video past us for a business or guide service or a taxidermist etc. Just don't do it, show us your own good stuff!!!! </strong></p>
+    `
   }
 ];
