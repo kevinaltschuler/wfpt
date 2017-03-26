@@ -267,11 +267,11 @@ app.use('/sendRequest', (req, res) => {
     };
 
     transporter.sendMail(mailOptions, function(error, info){
-        if(error){
+        if(error) {
             console.log(error);
             res.json({yo: 'error'});
         }
-        else{
+        else {
             console.log('Message sent: ' + info.response);
             console.log('submission sent');
             res.redirect('/home');
