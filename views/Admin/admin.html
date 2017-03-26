@@ -1,10 +1,13 @@
 {% extends 'layout.html' %}
+{% from "./tour-entry.html" import tour %}
+{% from "./trailer-entry.html" import trailer %}
+{% from "./press-entry.html" import press %}
 
 {% block body %}
 {{ super() }}
 
 <div>
-<h2>Tour Stops</h2>
+<h2>New Tour Stops</h2>
 <form id="tourForm" action="/addTour" method="POST">
     <input id="tourLoc" type="text" name="location" placeholder="Location" />
     <input id="tourDate" type="date" name="date" placeholder="Date" />
@@ -12,7 +15,7 @@
     <button type="submit">Add</button>
 </form>
 
-<h2>Trailers</h2>
+<h2>New Trailers</h2>
 <form id="trailerForm" action="/addTrailer" method="POST">
     <input id="trailerName" type="text" name="name" placeholder="Name" />
     <input id="trailerDate" type="date" name="date" placeholder="Date" />
@@ -22,7 +25,7 @@
     <button type="submit">Add</button>
 </form>
 
-<h2>Press Releases</h2>
+<h2>New Press Releases</h2>
 <form id="pressForm" action="/addPress" method="POST">
     <input id="pressTitle" type="text" name="title" placeholder="Title" />
     <input id="pressDate" type="date" name="date" placeholder="Date" />
@@ -32,6 +35,33 @@
     <input id="pressThumb" type="file" name="thumb" placeholder="Thumbnail image" />
     <button type="submit">Add</button>
 </form>
+</div>
+
+<div>
+    <h3>Existing tour stops</h3>
+    <div class="content even">
+        {% for t in tours %}
+        {{  tour(t)  }}
+        {% endfor %}
+    </div>
+</div>
+
+<div>
+    <h3>Existing trailers</h3>
+    <div class="content even">
+        {% for t in trailers %}
+        {{  trailer(t)  }}
+        {% endfor %}
+    </div>
+</div>
+
+<div>
+    <h3>Existing press items</h3>
+    <div class="content even">
+        {% for p in presses %}
+        {{  press(p)  }}
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

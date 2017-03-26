@@ -1,0 +1,10 @@
+{% macro tour(t={}) %}
+<div style="display: flex">
+    Location: {{t.location}} | Date: {{t.date.toDateString()}} ----
+    <form action="/delete/tour/{{t._id}}" method="POST">
+        <button type="submit">
+            <i class="material-icons">delete</i>
+        </button>
+    </form>
+</div>
+{% endmacro %}

@@ -1,0 +1,10 @@
+{% macro trailer(t={}) %}
+<div style="display: flex">
+    Name: {{t.name}} | Type: {{t.category}} | Link: {{t.link}} ----
+    <form action="/delete/trailer/{{t._id}}" method="POST">
+        <button type="submit">
+            <i class="material-icons">delete</i>
+        </button>
+    </form>
+</div>
+{% endmacro %}

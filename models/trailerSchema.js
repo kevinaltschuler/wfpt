@@ -8,7 +8,7 @@ var trailerSchema  = mongoose.Schema({
     description: String,
     category: {
         type: String,
-        enum: ['Photo', 'Video']
+        enum: ['Photo', 'Video', 'photo', 'video']
     }
 });
 

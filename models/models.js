@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://heroku_sksh3cz6:gep93jujkl9gvnuvapvf97qg82@ds137090.mlab.com:37090/heroku_sksh3cz6');
+mongoose.connect('mongodb://localhost/WFPTTest');
 
 var connection = mongoose.connection;
 connection.once('open', function() {

@@ -196,11 +196,63 @@ app.post('/addPress', (req, res) => {
     });
 });
 
+app.post('/delete/tour/:id', (req, res) => {
+    var Tour = models.tour;
+    Tour.findByIdAndRemove(req.params.id, function (err) {
+        if (err) throw err;
+
+        console.log('removed successfully!');
+        res.redirect('/admin');
+    });
+});
+
+app.post('/delete/trailer/:id', (req, res) => {
+    var Trailer = models.trailer;
+    Trailer.findByIdAndRemove(req.params.id, function (err) {
+        if (err) throw err;
+
+        console.log('removed successfully!');
+        res.redirect('/admin');
+    });
+});
+
+app.post('/delete/press/:id', (req, res) => {
+    var Press = models.press;
+    Press.findByIdAndRemove(req.params.id, function (err) {
+        if (err) throw err;
+
+        console.log('removed successfully!');
+        res.redirect('/admin');
+    });
+});
+
+
 // Admin tools
 app.get('/admin', (req, res) => {
-    res.render('Admin/admin.html', {
-        page: 'admin',
-        port: app.get('port'),
+    Tour.find( (err, tours) => {
+        if(err) {
+            console.log(err);
+        }
+
+        Trailer.find( (err, trailers) => {
+            if(err) {
+                console.log(err);
+            }
+
+            Press.find( (err, presses) => {
+                if(err) {
+                    console.log(err);
+                }
+
+                res.render('Admin/admin.html', {
+                    page: 'admin',
+                    port: app.get('port'),
+                    tours: tours,
+                    trailers: trailers,
+                    presses: presses
+                });
+            });
+        });
     });
 });
 
