@@ -6,7 +6,7 @@
     {{ super() }}
     <div id='wfpt-home'>
 
-        <div id="header-component" class="header-block" style="background-image: url('/img/bird1.jpg');">
+        <div id="header-component" class="header-block">
             <div class="home-text">
                 <div class="text">
                     Waterfowler Film and Photo Tour
@@ -19,6 +19,13 @@
                 <button class="home-play-button" onclick="switchToVideo()">
                     <i class="material-icons">play_arrow</i>
                 </button>
+            </div>
+            <div id="carouselMain" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active" style="background-image: url('/img/1.jpg');"></div>
+                <div class="carousel-item" style="background-image: url('/img/2.jpg');"></div>
+                <div class="carousel-item" style="background-image: url('/img/3.jpg');"></div>
+              </div>
             </div>
             <div class="dark-overlay"></div>
         </div>

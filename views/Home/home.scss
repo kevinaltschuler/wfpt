@@ -69,6 +69,23 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: 100% auto;
+      #carouselMain {
+            left: 0;
+            width: 100%;
+            height: 350px;
+            position: absolute;
+            .carousel-inner {
+                width: 100%;
+                height: 100%;
+                .carousel-item {
+                    width: 100%;
+                    height: 100%;
+                    background-size: 100% auto;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+            }
+      }
       .home-text {
           display: flex;
           flex-direction: column;
