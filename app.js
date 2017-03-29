@@ -20,7 +20,7 @@ const ADMIN_PASS = 'pass';
 
 const authenticate = new BasicStrategy((user, pass, done) =>
     done(null, user === ADMIN_NAME && pass === ADMIN_PASS ? ADMIN_NAME : false)
-)
+);
 
 passport.use(authenticate);
 passport.serializeUser((user, done) => done(null, user));
@@ -152,6 +152,22 @@ app.get('/watch', (req, res) => {
 app.get('/shop', (req, res) => {
     res.render('Shop/shop.html', {
         page: 'shop',
+        port: app.get('port'),
+    });
+});
+
+// success page
+app.get('/success', (req, res) => {
+    res.render('Response/success.html', {
+        page: 'success',
+        port: app.get('port'),
+    });
+});
+
+// success page
+app.get('/failure', (req, res) => {
+    res.render('Response/failure.html', {
+        page: 'failure',
         port: app.get('port'),
     });
 });
@@ -309,12 +325,12 @@ app.use('/sendSubmission', (req, res) => {
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
             console.log(error);
-            res.json({yo: 'error'});
+            res.redirect('/failure');
         }
         else{
             console.log('Message sent: ' + info.response);
             console.log('submission sent');
-            res.redirect('/home');
+            res.redirect('/success');
         }
     });
 });
@@ -344,15 +360,29 @@ app.use('/sendRequest', (req, res) => {
     };
 
     transporter.sendMail(mailOptions, function(error, info){
-        if(error) {
+        if(error){
             console.log(error);
-            res.json({yo: 'error'});
+            res.redirect('/failure')
         }
-        else {
+        else{
             console.log('Message sent: ' + info.response);
             console.log('submission sent');
-            res.redirect('/home');
+            res.redirect('/success');
         }
+    });
+});
+
+
+app.use('/vote/:id', (req, res) => {
+    const Trailer = models.trailer;
+    Trailer.findOneAndUpdate({_id: req.params.id}, {$inc: { votes: 1 }}, function(err) {
+        if(err){
+            console.log("Something wrong when updating data!");
+            res.redirect('/failure');
+        }
+
+        console.log("vote successful!");
+        res.redirect('/success');
     });
 });
 
