@@ -80,7 +80,7 @@
             <h3 class="title">
                 Who's talking about us?
             </h3>
-            <div class="content even">
+            <div class="content even" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
                 {% for press in presses %}
                     {{  pressCard(press)  }}
                 {% endfor %}
