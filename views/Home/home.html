@@ -32,6 +32,7 @@
                         <div class="dark-overlay"></div>\
                     </div>\
                 ')
+                $('#header-component > .dark-overlay').css('opacity', '.8');
             }
             function switchBack() {
                 $('#header-component').replaceWith('\
@@ -81,8 +82,9 @@
             </h3>
             <div class="content even">
                 {% for press in presses %}
-                {{  pressCard(press)  }}
+                    {{  pressCard(press)  }}
                 {% endfor %}
+                {{  pressCard(press)  }}{{  pressCard(press)  }}{{  pressCard(press)  }}{{  pressCard(press)  }}{{  pressCard(press)  }}{{  pressCard(press)  }}
             </div>
         </div>
     </div>
