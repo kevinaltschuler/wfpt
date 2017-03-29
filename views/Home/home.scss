@@ -66,6 +66,9 @@
       justify-content: flex-start;
       align-items: flex-start;
       flex-direction: column;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% auto;
       .home-text {
           display: flex;
           flex-direction: column;

@@ -12,8 +12,25 @@ import submitBlocks from './submitBlocks';
 import specialBlocks from './specialBlocks';
 import homeBlocks from './homeBlocks';
 
+var passport = require('passport');
+var BasicStrategy = require('passport-http').BasicStrategy;
+
+const ADMIN_NAME = 'admin';
+const ADMIN_PASS = 'pass';
+
+const authenticate = new BasicStrategy((user, pass, done) =>
+    done(null, user === ADMIN_NAME && pass === ADMIN_PASS ? ADMIN_NAME : false)
+)
+
+passport.use(authenticate);
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((user, done) => done(null, user));
+
 const app = express();
 const models = require('./models/models');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -197,11 +214,19 @@ app.post('/addPress', (req, res) => {
 });
 
 // Admin tools
-app.get('/admin', (req, res) => {
+app.get('/admin', passport.authenticate('basic', { session: false }), (req, res) => {
     res.render('Admin/admin.html', {
         page: 'admin',
         port: app.get('port'),
     });
+});
+
+app.get('/login', function(req, res) {
+    res.render('Login/login.html', { user : req.user });
+});
+
+app.post('/login', passport.authenticate('local'), function(req, res) {
+    res.redirect('/admin');
 });
 
 app.use('/sendSubmission', (req, res) => {
