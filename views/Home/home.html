@@ -32,6 +32,7 @@
                         <div class="dark-overlay"></div>\
                     </div>\
                 ')
+                $('#header-component > .dark-overlay').css('opacity', '.8');
             }
             function switchBack() {
                 $('#header-component').replaceWith('\
@@ -79,10 +80,11 @@
             <h3 class="title">
                 Who's talking about us?
             </h3>
-            <div class="content even">
+            <div class="content even" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
                 {% for press in presses %}
-                {{  pressCard(press)  }}
+                    {{  pressCard(press)  }}
                 {% endfor %}
+                {{  pressCard(press)  }}{{  pressCard(press)  }}{{  pressCard(press)  }}{{  pressCard(press)  }}{{  pressCard(press)  }}{{  pressCard(press)  }}
             </div>
         </div>
     </div>
