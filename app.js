@@ -176,6 +176,7 @@ app.post('/addTour', (req, res) => {
     var Tour = models.tour;
 
     var t = new Tour({
+        event: req.body.event,
         location: req.body.location,
         date: req.body.date,
         ticketsAvailable: req.body.ticketsAvailable,
@@ -186,6 +187,7 @@ app.post('/addTour', (req, res) => {
         if (err) {
             console.log(err);
             res.redirect('/admin');
+            return;
         }
 
         console.log('saved successfully!');
@@ -209,6 +211,7 @@ app.post('/addTrailer', (req, res) => {
         if (err) {
             console.log(err);
             res.redirect('/admin');
+            return;
         }
 
         console.log('saved successfully!');
@@ -231,6 +234,7 @@ app.post('/addPress', (req, res) => {
         if (err) {
             console.log(err);
             res.redirect('/admin');
+            return;
         }
 
         console.log('saved successfully!');
@@ -244,6 +248,7 @@ app.post('/delete/tour/:id', (req, res) => {
         if (err) {
             console.log(err);
             res.redirect('/admin');
+            return;
         }
 
         console.log('removed successfully!');
@@ -257,6 +262,7 @@ app.post('/delete/trailer/:id', (req, res) => {
         if (err) {
             console.log(err);
             res.redirect('/admin');
+            return;
         }
 
         console.log('removed successfully!');
@@ -270,6 +276,7 @@ app.post('/delete/press/:id', (req, res) => {
         if (err) {
             console.log(err);
             res.redirect('/admin');
+            return;
         }
 
         console.log('removed successfully!');

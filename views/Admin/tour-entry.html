@@ -1,6 +1,6 @@
 {% macro tour(t={}) %}
 <div style="display: flex">
-    Location: {{t.location}} | Date: {{t.date.toDateString()}} ----
+    Event: {{t.event}} | Location: {{t.location}} | Date: {{t.date.toString().substring(0, 15)}} ----
     <form action="/delete/tour/{{t._id}}" method="POST">
         <button type="submit">
             <i class="material-icons">delete</i>

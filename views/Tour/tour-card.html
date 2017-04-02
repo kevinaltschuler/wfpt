@@ -1,9 +1,10 @@
 {% macro tourCard(tour={}) %}
     <div class="card tour-card">
         <div class="card-block">
+            <h4 class="card-title">{{tour.event}}</h4>
             <h4 class="card-title">{{tour.location}}</h4>
-            <h4 class="card-title">{{tour.date.toDateString()}}</h4>
-            <p class="card-text">
+            <h4 class="card-text lead">{{tour.date.toString().substring(0, 15)}}</h4>
+            <p class="card-text lead">
                 {{tour.ticketsAvailable-tour.ticketsSold}}/{{tour.ticketsAvailable}} tickets left
             </p>
             <a href="{{trailer.link}}" class="btn btn-primary">Buy Tix - Coming Soon!</a>
