@@ -164,7 +164,7 @@ app.get('/success', (req, res) => {
     });
 });
 
-// success page
+// failure page
 app.get('/failure', (req, res) => {
     res.render('Response/failure.html', {
         page: 'failure',
@@ -183,7 +183,10 @@ app.post('/addTour', (req, res) => {
     });
 
     t.save(function(err) {
-        if (err) throw err;
+        if (err) {
+            console.log(err);
+            res.redirect('/admin');
+        }
 
         console.log('saved successfully!');
         res.redirect('/admin');
@@ -203,7 +206,10 @@ app.post('/addTrailer', (req, res) => {
     });
 
     t.save(function(err) {
-        if (err) throw err;
+        if (err) {
+            console.log(err);
+            res.redirect('/admin');
+        }
 
         console.log('saved successfully!');
         res.redirect('/admin');
@@ -222,7 +228,10 @@ app.post('/addPress', (req, res) => {
     });
 
     p.save(function(err) {
-        if (err) throw err;
+        if (err) {
+            console.log(err);
+            res.redirect('/admin');
+        }
 
         console.log('saved successfully!');
         res.redirect('/admin');
@@ -232,7 +241,10 @@ app.post('/addPress', (req, res) => {
 app.post('/delete/tour/:id', (req, res) => {
     var Tour = models.tour;
     Tour.findByIdAndRemove(req.params.id, function (err) {
-        if (err) throw err;
+        if (err) {
+            console.log(err);
+            res.redirect('/admin');
+        }
 
         console.log('removed successfully!');
         res.redirect('/admin');
@@ -242,7 +254,10 @@ app.post('/delete/tour/:id', (req, res) => {
 app.post('/delete/trailer/:id', (req, res) => {
     var Trailer = models.trailer;
     Trailer.findByIdAndRemove(req.params.id, function (err) {
-        if (err) throw err;
+        if (err) {
+            console.log(err);
+            res.redirect('/admin');
+        }
 
         console.log('removed successfully!');
         res.redirect('/admin');
@@ -252,7 +267,10 @@ app.post('/delete/trailer/:id', (req, res) => {
 app.post('/delete/press/:id', (req, res) => {
     var Press = models.press;
     Press.findByIdAndRemove(req.params.id, function (err) {
-        if (err) throw err;
+        if (err) {
+            console.log(err);
+            res.redirect('/admin');
+        }
 
         console.log('removed successfully!');
         res.redirect('/admin');
@@ -383,6 +401,14 @@ app.use('/vote/:id', (req, res) => {
 
         console.log("vote successful!");
         res.redirect('/success');
+    });
+});
+
+// 404 page
+app.get('/*', (req, res) => {
+    res.render('Response/404.html', {
+        page: '404',
+        port: app.get('port'),
     });
 });
 
