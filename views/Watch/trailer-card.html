@@ -1,17 +1,59 @@
 {% macro trailerCard(trailer={}) %}
-    <div class="card video-card">
+    <script type="text/javascript">
+        function youtube_parser(url){
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            return (match&&match[7].length==11)? match[7] : false;
+        }
+        $( document ).ready(function() {
+            var thumbnailstring = 'https://img.youtube.com/vi/' + youtube_parser('{{trailer.link}}') + '/0.jpg';
+            $('#{{trailer._id}} > .card-img-top').css(
+                'background-image', "url(" + thumbnailstring + ")"
+            );
+            var embedSrcString = 'https://www.youtube.com/embed/' + youtube_parser('{{trailer.link}}') + '?rel=0';
+            $('#{{trailer._id}}-embed').attr('src', embedSrcString);
+        });
+    </script>
+    <div class="card video-card" id="{{trailer._id}}">
         <div
             class="card-img-top"
-            style="
-                background-image: url('https://img.youtube.com/vi/p9nqQuu4lmQ/0.jpg');"
             alt="Card image cap"
-        ><i class="material-icons">play_arrow</i></div>
+            data-toggle="modal"
+            data-target="#{{trailer._id}}-modal"
+        >
+            <i class="material-icons">play_arrow</i>
+        </div>
         <div class="card-block">
             <h4 class="card-title">{{trailer.name}}</h4>
             <p class="card-text lead">
                 {{trailer.description}}
             </p>
-            <a href="/vote/{{trailer._id}}" class="btn btn-primary">Vote</a>
+            <div class="d-flex justify-content-between">
+                <span class="badge badge-default align-self-center">{{trailer.votes}} Votes</span>
+                <a href="/vote/{{trailer._id}}" class="btn btn-primary">Vote</a>
+            </div>
+
         </div>
+    </div>
+    <div class="modal fade" id="{{trailer._id}}-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{trailer.name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="intrinsic-container">
+                <iframe id="{{trailer._id}}-embed" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <br>
+            <p class="card-text lead mx-3">
+                {{trailer.description}}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 {% endmacro %}
