@@ -43,22 +43,29 @@
             }
             function switchBack() {
                 $('#header-component').replaceWith('\
-                <div id="header-component" class="header-block" style="background-image: url(\'/img/bird1.jpg\');">\
-                    <div class="home-text">\
-                        <div class="text">\
-                            Water Fowler Film and Photo Tour\
+                    <div id="header-component" class="header-block">\
+                        <div class="home-text">\
+                            <div class="text">\
+                                Waterfowler Film and Photo Tour\
+                            </div>\
+                            <div class="details">\
+                                The Premiere Site for Waterfowling\
+                            </div>\
                         </div>\
-                        <div class="details">\
-                            The Premeire Site for Water Fowling\
+                        <div style="align-self: center; flex-grow: 1; display: flex; justify-content: center;">\
+                            <button class="home-play-button" onclick="switchToVideo()">\
+                                <i class="material-icons">play_arrow</i>\
+                            </button>\
                         </div>\
+                        <div id="carouselMain" class="carousel slide" data-ride="carousel">\
+                          <div class="carousel-inner" role="listbox">\
+                            <div class="carousel-item active" style="background-image: url(' + "'/img/1.jpg'" + ');"></div>\
+                            <div class="carousel-item" style="background-image: url(' + "'/img/1.jpg'" + ');"></div>\
+                            <div class="carousel-item" style="background-image: url(' + "'/img/1.jpg'" + ');"></div>\
+                          </div>\
+                        </div>\
+                        <div class="dark-overlay"></div>\
                     </div>\
-                    <div style="align-self: center; flex-grow: 1; display: flex; justify-content: center;">\
-                        <button class="home-play-button" onclick="switchToVideo()">\
-                            <i class="material-icons">play_arrow</i>\
-                        </button>\
-                    </div>\
-                    <div class="dark-overlay"></div>\
-                </div>\
                 ')
             }
         </script>
