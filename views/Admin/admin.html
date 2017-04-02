@@ -9,6 +9,7 @@
 <div>
 <h2>New Tour Stops</h2>
 <form id="tourForm" action="/addTour" method="POST">
+    <input id="tourEvent" type="text" name="event" placeholder="Event" />
     <input id="tourLoc" type="text" name="location" placeholder="Location" />
     <input id="tourDate" type="date" name="date" placeholder="Date" />
     <input id="tickets" type="number" name="ticketsAvailable" placeholder="Tickets Available" />
@@ -31,8 +32,7 @@
     <input id="pressDate" type="date" name="date" placeholder="Date" />
     <input id="pressDes" type="text" name="description" aria-multiline="true" placeholder="Description" />
     <input id="pressLink" type="url" name="link" placeholder="Link" />
-    <label>Thumbnail</label>
-    <input id="pressThumb" type="file" name="thumb" placeholder="Thumbnail image" />
+    <input id="pressThumb" type="url" name="thumb" placeholder="Company logo" />
     <button type="submit">Add</button>
 </form>
 </div>
