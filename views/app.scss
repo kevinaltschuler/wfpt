@@ -38,3 +38,7 @@
     src: url('/Lato/Lato-Regular.ttf');
     font-weight: normal;
 }
+
+.block-body {
+    min-height: calc(100vh - 180px);
+}

@@ -1,4 +1,4 @@
-{% macro trailerCard(trailer={}) %}
+{% macro trailerCardYoutube(trailer={}) %}
     <script type="text/javascript">
         function youtube_parser(url){
             var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
@@ -23,11 +23,12 @@
         >
             <i class="material-icons">play_arrow</i>
         </div>
-        <div class="card-block">
+        <div class="card-block d-flex flex-column">
             <h4 class="card-title">{{trailer.name}}</h4>
             <p class="card-text lead">
                 {{trailer.description}}
             </p>
+            <div style="flex: 1;"></div>
             <div class="d-flex justify-content-between">
                 <span class="badge badge-default align-self-center">{{trailer.votes}} Votes</span>
                 <a href="/vote/{{trailer._id}}" class="btn btn-primary">Vote</a>

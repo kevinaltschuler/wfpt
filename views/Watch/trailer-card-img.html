@@ -1,0 +1,44 @@
+{% macro trailerCardImage(trailer={}) %}
+    <div class="card video-card" id="{{trailer._id}}">
+        <div
+            class="card-img-top"
+            alt="Card image cap"
+            data-toggle="modal"
+            data-target="#{{trailer._id}}-modal"
+            style="background-image: url({{trailer.link}})"
+        >
+        </div>
+        <div class="card-block d-flex flex-column">
+            <h4 class="card-title">{{trailer.name}}</h4>
+            <p class="card-text lead">
+                {{trailer.description}}
+            </p>
+            <div style="flex: 1"></div>
+            <div class="d-flex justify-content-between">
+                <span class="badge badge-default align-self-center">{{trailer.votes}} Votes</span>
+                <a href="/vote/{{trailer._id}}" class="btn btn-primary">Vote</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="{{trailer._id}}-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{trailer.name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex align-items-center justify-content-center">
+                <img src="{{trailer.link}}">
+            </div>
+            <br>
+            <p class="card-text lead mx-3">
+                {{trailer.description}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endmacro %}
