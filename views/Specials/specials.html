@@ -39,41 +39,19 @@
               </form>
               <div class="right-column">
                   <p>
-                    <strong>Working with us comes with benefits</strong>
+                    <strong>Request a private show:</strong>
                   </p>
                   <ul>
-                      <li>The ULTIMATE PROGRAM for fundraising opportunity and delivering localized awareness.</li>
+                      <li>By requesting a private show, you open the door to a world of opportunity, be it for a fundraiser, contest, or corporate entertainment, your own private show is really something special.</li>
                       <hr />
-                      <li>Host your own unique show exclusive to your market!</li>
+                      <li>We look forward to providing you a special one on one show that you can dictate what, where, and when.</li>
                       <hr />
-                      <li><strong>Benefits Include:</strong> Increased Membership, Access to Like-Minded Outdoorsman, Increased Database, Local Awareness, Fundraising, Raffles, Door Prizes, Silent Auctions, National Advertising, Custom Posters and Flyers, Email Marketing, Online Ticketing, Swag and Much More!</li>
+                      <li>Just start by contacting us at WaterfolwersFPT.com, and let us know what your looking for, and we will set up a custom event just for you,as well as help you promote the event on the website as well as other promotional products available to you.</li>
                       <hr />
-                      <li>Work with the biggest names, the best films, the most established brand, the original and world’s largest… Fly Fishing Film Tour.</li>
-                      <hr />
-                      <li><strong>Contact Us:</strong> affiliate@mayflymedia.com – 303.815.1070<br></li>
+                      <li><strong>Contact Us:</strong> <br>wfptsubmissions@gmail.com <br>732-789-4251<br></li>
                   </ul>
               </div>
           </div>
       </div>
   </div>
-
-  {% for block in blocks %}
-      {% if loop.index % 2 == 1 %}
-          {{
-              contentBlock(
-                  title=block.title,
-                  content=block.content,
-                  extraClass="odd"
-              )
-          }}
-      {% else %}
-          {{
-              contentBlock(
-                  title=block.title,
-                  content=block.content,
-                  extraClass="even"
-              )
-          }}
-      {% endif %}
-  {% endfor %}
 {% endblock %}
