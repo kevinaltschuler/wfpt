@@ -8,7 +8,7 @@
         $( document ).ready(function() {
             var embedSrcString = 'https://player.vimeo.com/video/' + get_id('{{trailer.link}}') + '?color=ababab&portrait=0';
             $('#{{trailer._id}}-embed').attr('src', embedSrcString);
-            $.getJSON('http://www.vimeo.com/api/v2/video/' + get_id('{{trailer.link}}') + '.json?callback=?', {format: "json"}, function(data) {
+            $.getJSON('https://www.vimeo.com/api/v2/video/' + get_id('{{trailer.link}}') + '.json?callback=?', {format: "json"}, function(data) {
                 $('#{{trailer._id}} > .card-img-top').css(
                     'background-image', "url(" + data[0].thumbnail_large + ")"
                 );
