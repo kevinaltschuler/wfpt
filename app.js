@@ -9,7 +9,6 @@ import Tour from './models/tourSchema';
 import Trailer from './models/trailerSchema';
 import Press from './models/pressSchema';
 import submitBlocks from './submitBlocks';
-import specialBlocks from './specialBlocks';
 import homeBlocks from './homeBlocks';
 
 var passport = require('passport');
@@ -105,7 +104,6 @@ app.get('/specials', (req, res) => {
   res.render('Specials/specials.html', {
     page: 'specials',
     port: app.get('port'),
-    blocks: specialBlocks
   });
 });
 
