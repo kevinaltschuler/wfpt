@@ -6,14 +6,22 @@
             return match[3] || false;
         }
         $( document ).ready(function() {
-            var embedSrcString = 'https://player.vimeo.com/video/' + get_id('{{trailer.link}}') + '?color=ababab&portrait=0';
-            $('#{{trailer._id}}-embed').attr('src', embedSrcString);
             $.getJSON('https://www.vimeo.com/api/v2/video/' + get_id('{{trailer.link}}') + '.json?callback=?', {format: "json"}, function(data) {
                 $('#{{trailer._id}} > .card-img-top').css(
                     'background-image', "url(" + data[0].thumbnail_large + ")"
                 );
             });
+            $("#{{trailer._id}}-modal").on('hidden.bs.modal', function (e) {
+                $('#{{trailer._id}}-embed').attr('src', '');
+            });
         });
+        function onCloseModal{{trailer._id}}() {
+            $('#{{trailer._id}}-embed').attr('src', '');
+        }
+        function onOpenModal{{trailer._id}}() {
+            var embedSrcString = 'https://player.vimeo.com/video/' + get_id('{{trailer.link}}') + '?color=ababab&portrait=0';
+            $('#{{trailer._id}}-embed').attr('src', embedSrcString);
+        }
     </script>
     <div class="card video-card" id="{{trailer._id}}">
         <div
@@ -21,6 +29,7 @@
             alt="Card image cap"
             data-toggle="modal"
             data-target="#{{trailer._id}}-modal"
+            onclick="onOpenModal{{trailer._id}}()"
         >
             <i class="material-icons">play_arrow</i>
         </div>
@@ -42,7 +51,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">{{trailer.name}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="onCloseModal{{trailer._id}}()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>

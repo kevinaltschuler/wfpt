@@ -71,6 +71,7 @@
       background-size: 100% auto;
       #carouselMain {
             left: 0;
+            top: 72px;
             width: 100%;
             height: 350px;
             position: absolute;
@@ -108,10 +109,8 @@
           height: 100px;
           border-radius: 100%;
           border: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
           align-self: center;
+          padding-top: 10px;
           background: rgba(0,0,0,0);
           border: 1px solid #fff;
           z-index: 10;
@@ -137,9 +136,7 @@
           height: 50px;
           border-radius: 100%;
           border: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          padding-top: 8px;
           align-self: center;
           background: rgba(0,0,0,0);
           border: 1px solid #fff;
@@ -166,6 +163,7 @@
       .dark-overlay {
         position: absolute;
         width: 100%;
+        top: 72px;
         height: 350px;
         background: black;
         margin-left: -20px;
@@ -173,8 +171,34 @@
       }
     }
 }
-.slick-list.draggable {
-    padding: 0px !important;
+
+.carousel-fade .carousel-inner .carousel-item {
+	-webkit-transition-property: opacity;
+	-moz-transition-property: opacity;
+	-o-transition-property: opacity;
+	-ms-transition-property: opacity;
+	transition-property: opacity;
+}
+.carousel-fade .carousel-inner .carousel-item,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+	opacity: 0;
+}
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+	opacity: 1;
+}
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+	left: 0;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
 }
 
 .bottom-nav-item {
@@ -188,11 +212,8 @@
 }
 
 .social-media {
-  float: right;
   width: 40px;
   height: 40px;
-  margin-right: 20px;
-  margin-top: 40px;
 }
 
 

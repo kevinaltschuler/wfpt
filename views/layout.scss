@@ -18,11 +18,12 @@
     }
     .dark-overlay {
       position: absolute;
-      width: 100%;
+      width: 200%;
       height: 300px;
       background: black;
       margin-left: -20px;
       opacity: .5;
+      left:0;
     }
   }
 }

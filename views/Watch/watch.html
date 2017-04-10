@@ -9,18 +9,31 @@
 <div>
     {% set demoImageSrc = 'url("http://betoclock.com/wp-content/uploads/2015/11/lolstaples-1024x544.jpg")' %}
     {{ headerBlock(image=demoImageSrc, text="Latest Tour Flix") }}
-    <div class="content-block even trailers-list">
-        {% set regExpVimeo = r/vimeo/g %}
-        {% set regExpYoutube = r/youtube|youtu\.be/g %}
-        {% for trailer in trailers %}
-            {% if regExpVimeo.test(trailer.link) %}
-                {{  trailerCardVimeo(trailer)  }}
-            {% elif regExpYoutube.test(trailer.link) %}
-                {{ trailerCardYoutube(trailer) }}
-            {% else %}
-                {{ trailerCardImage(trailer) }}
-            {% endif %}
-        {% endfor %}
+    <div class="content-block even">
+        <strong>Trailers</strong>
+        <div class="trailers-list">
+            {% set regExpVimeo = r/vimeo/g %}
+            {% set regExpYoutube = r/youtube|youtu\.be/g %}
+            {% for trailer in trailers %}
+                {% if trailer.category == 'video' or trailer.category == 'Video' %}
+                    {% if regExpYoutube.test(trailer.link) %}
+                        {{ trailerCardYoutube(trailer) }}
+                    {% else %}
+                        {{  trailerCardVimeo(trailer)  }}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="content-block even">
+        <strong>Images</strong>
+        <div class="trailers-list">
+            {% for trailer in trailers %}
+                {% if trailer.category == 'photo' or trailer.category == 'Photo'  %}
+                    {{ trailerCardImage(trailer) }}
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 

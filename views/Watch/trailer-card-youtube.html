@@ -10,9 +10,18 @@
             $('#{{trailer._id}} > .card-img-top').css(
                 'background-image', "url(" + thumbnailstring + ")"
             );
+            $("#{{trailer._id}}-modal").on('hidden.bs.modal', function (e) {
+                $('#{{trailer._id}}-embed').attr('src', '');
+            });
+        });
+        function onCloseModal{{trailer._id}}() {
+            $('#{{trailer._id}}-embed').attr('src', '');
+        }
+        function onOpenModal{{trailer._id}}() {
             var embedSrcString = 'https://www.youtube.com/embed/' + youtube_parser('{{trailer.link}}') + '?rel=0';
             $('#{{trailer._id}}-embed').attr('src', embedSrcString);
-        });
+        }
+
     </script>
     <div class="card video-card" id="{{trailer._id}}">
         <div
@@ -20,6 +29,7 @@
             alt="Card image cap"
             data-toggle="modal"
             data-target="#{{trailer._id}}-modal"
+            onclick="onOpenModal{{trailer._id}}()"
         >
             <i class="material-icons">play_arrow</i>
         </div>
@@ -41,7 +51,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">{{trailer.name}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="onCloseModal{{trailer._id}}()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
