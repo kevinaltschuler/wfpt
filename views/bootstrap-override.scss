@@ -13,6 +13,10 @@
 }
 
 
+.flex-one {
+    flex: 1;
+}
+
 .btn.btn-primary {
     border-radius: 2px;
     border: 2px solid #E9E9E9;
@@ -27,6 +31,13 @@
         color: white;
         border-color: transparent;
     }
+}
+
+.card-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 body {
