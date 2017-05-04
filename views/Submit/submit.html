@@ -2,7 +2,7 @@
 
 {% block body %}
     {{ super() }}
-    {% set demoImageSrc = 'url("http://betoclock.com/wp-content/uploads/2015/11/lolstaples-1024x544.jpg")' %}
+    {% set demoImageSrc = 'url("img/dog_sunset.jpg")' %}
     {{ headerBlock(image=demoImageSrc, text="Let's See Yours") }}
     <div class="content-block content-block-submit">
         <div class="submit-fields-column">
@@ -33,10 +33,6 @@
                         <label for="trailerInput">Trailer Link</label>
                         <input class="form-control" name="submissionLink" id="trailerInput" aria-describedby="tailerInputHelp" placeholder="https://youtube.com/v?=videoId">
                         <small id="tailerInputHelp" class="form-text text-muted">Link to your video</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="passwordInput">Password</label>
-                        <input type="password" class="form-control" name="password" id="passwordInput" placeholder="Password">
                     </div>
                     <br />
                     <button type="submit" class="btn btn-primary">Submit</button>

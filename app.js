@@ -335,12 +335,11 @@ app.use('/sendSubmission', (req, res) => {
         <li>Phone: ${req.body.phone}</li>
         <li>Personal Website: ${req.body.website}</li>
         <li>Submission Link: ${req.body.submissionLink}</li>
-        <li>Password: ${req.body.password}</li>
    `;
 
     const mailOptions = {
         from: 'wfptsubmissions@gmail.com', // sender address
-        to: 'max.j.rais@gmail.com', // list of receivers
+        to: 'waterfowlersfpt@gmail.com, max.j.rais@gmail.com, smitytv1@yahoo.com', // list of receivers
         subject: 'New Submission from ' + req.body.fullName, // Subject line
         html: html // You can choose to send an HTML body instead
     };
@@ -377,7 +376,7 @@ app.use('/sendRequest', (req, res) => {
 
     const mailOptions = {
         from: 'wfptsubmissions@gmail.com', // sender address
-        to: 'max.j.rais@gmail.com', // list of receivers
+        to: 'waterfowlersfpt@gmail.com, max.j.rais@gmail.com, smitytv1@yahoo.com', // list of receivers
         subject: 'New Hosting Request from ' + req.body.fullName, // Subject line
         html: html // You can choose to send an HTML body instead
     };
