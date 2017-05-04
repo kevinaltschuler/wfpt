@@ -69,9 +69,10 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
+      position: relative;
+      overflow: hidden;
       #carouselMain {
             left: 0;
-            top: 72px;
             width: 100%;
             height: 350px;
             position: absolute;
@@ -145,7 +146,7 @@
           cursor: pointer;
           right: 0;
           margin-top: 10px;
-          margin-right: 10px;
+          margin-right: 30px;
 
           &:hover {
               opacity: 1;
@@ -162,11 +163,10 @@
       }
       .dark-overlay {
         position: absolute;
-        width: 200%;
-        top: 72px;
+        width: 110%;
         height: 350px;
         background: black;
-        margin-left: -20px;
+        margin-left: -10%px;
         opacity: .5;
       }
     }
@@ -203,6 +203,21 @@
 .social-media {
   width: 40px;
   height: 40px;
+}
+
+.header-video {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-left: 20px;
+    justify-content: flex-start;
+    position: absolute;
+    align-items: flex-start;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
 }
 
 

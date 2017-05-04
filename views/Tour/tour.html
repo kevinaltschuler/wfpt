@@ -7,9 +7,17 @@
     {% set demoImageSrc = 'url("img/running.jpg")' %}
     {{ headerBlock(image=demoImageSrc, text="Show Stops and Tix") }}
 
-    {% for tour in tours %}
-    {{  tourCard(tour)  }}
-    {% endfor %}
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 40px 20px;">
+        {% for tour in tours %}
+
+            {{  tourCard(tour)  }}
+
+        {% endfor %}
+        <div class="card tour-card" style="opacity: 0;">
+            <div class="card-block">
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

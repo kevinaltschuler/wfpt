@@ -38,7 +38,7 @@
         <script>
             function switchToVideo() {
                 $('#header-component').append('\
-                    <div id="header-component" class="header-block" style="background-image: url(\'/img/bird1.jpg\'); z-index: 10;">\
+                    <div id="header-component" class="header-video" style="background-image: url(\'/img/bird1.jpg\'); z-index: 10;">\
                         <iframe style="align-self: center; z-index: 10; height: 100%; width: 100%; max-width: 800px;" src="https://player.vimeo.com/video/65936668" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\
                         <button class="close-button" onclick="switchBack()"><i class="material-icons">close</i></button>\
                         <div class="dark-overlay"></div>\
@@ -75,6 +75,7 @@
                         </div>\
                         <div class="dark-overlay"></div>\
                     </div>\
+                    <script>$(".carousel").carousel({interval: 6000,pause: false})\
                 ')
             }
             $('.carousel').carousel({
