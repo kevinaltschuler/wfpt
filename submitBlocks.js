@@ -3,10 +3,10 @@ export default [
     title: 'Final Submissions have to include:',
     content: `
       <li>
-        <ul>1. 1 fully edited film tour submission up to 15 minutes long (10 minutes min)</ul>
-        <ul>2. 15 second max end credits for film credits and sponsor mentions (Sponsor mentions must be at end of film in end credits only)</ul>
+        <ul>1. 1 fully edited film tour submission up to 20 minutes long (10 minutes min)</ul>
+        <ul>2. 30 second max end credits for film credits and sponsor mentions (Sponsor mentions must be at end of film in end credits only)</ul>
         <ul>3. PLEASE!!  Super slow mo is awesome, but don't try to show a never ending shot of a piece of equipment in that format as a part of the show, a little is fine. A lot gets the gong!!! </ul>
-        <ul>4. Film Trailer up to 2.5 minutes long to be uploaded on Vimeo. Show a section of your work that will leave everyone wanting to see more, and they can appreciate your work.</ul>
+        <ul>4. Film Trailer up to 2.5 minutes long to be uploaded on Vimeo or Youtube. Show a section of your work that will leave everyone wanting to see more, and they can appreciate your work.</ul>
         <ul>5. At least 2 Filmmaker photos or film company logos</ul>
         <ul>6. Photo stills from film (3 minimum)</ul>
         <ul>7. Max 300 word description of film</ul>
