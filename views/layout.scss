@@ -7,6 +7,8 @@
     display: flex;
     align-items: center;
     padding-left: 20px;
+    background-size: cover;
+    background-position: center;
 
     align-items: flex-end;
     .text {
@@ -19,11 +21,12 @@
     }
     .dark-overlay {
       position: absolute;
-      width: 200%;
+      width: 110%;
       height: 300px;
       background: black;
-      margin-left: -20px;
+      margin-left: -10%;
       opacity: .5;
+      top: 0px;
       left:0;
     }
   }
