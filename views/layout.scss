@@ -75,3 +75,20 @@ h3 {
     background-color: white;
   }
 }
+
+#footer-nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 100px;    
+}
+
+@media screen and (max-width: 800px) {
+    .content-block {
+        padding: 50px 20px;
+    }
+
+    #footer-nav-list {
+        padding: 0px;
+    }
+}
