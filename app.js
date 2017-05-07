@@ -10,7 +10,8 @@ import Trailer from './models/trailerSchema';
 import Press from './models/pressSchema';
 import submitBlocks from './submitBlocks';
 import homeBlocks from './homeBlocks';
-import {ADMIN_NAME, ADMIN_PASS, EMAIL_NAME, EMAIL_PASS} from './constants';
+
+const { ADMIN_NAME, ADMIN_PASS, EMAIL_NAME, EMAIL_PASS } = process.env;
 
 var passport = require('passport');
 var BasicStrategy = require('passport-http').BasicStrategy;
