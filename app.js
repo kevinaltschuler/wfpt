@@ -10,12 +10,10 @@ import Trailer from './models/trailerSchema';
 import Press from './models/pressSchema';
 import submitBlocks from './submitBlocks';
 import homeBlocks from './homeBlocks';
+import {ADMIN_NAME, ADMIN_PASS, EMAIL_NAME, EMAIL_PASS} from './constants';
 
 var passport = require('passport');
 var BasicStrategy = require('passport-http').BasicStrategy;
-
-const ADMIN_NAME = 'admin';
-const ADMIN_PASS = 'pass';
 
 const authenticate = new BasicStrategy((user, pass, done) =>
     done(null, user === ADMIN_NAME && pass === ADMIN_PASS ? ADMIN_NAME : false)
@@ -324,8 +322,8 @@ app.use('/sendSubmission', (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'wfptsubmissions@gmail.com', // Your email id
-            pass: 'waterfowler1' // Your password
+            user: EMAIL_NAME, // Your email id
+            pass: EMAIL_PASS // Your password
         }
     });
 
