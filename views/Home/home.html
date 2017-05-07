@@ -36,52 +36,55 @@
         </div>
 
         <script>
+            $(document).ready(function() {
+                $('.carousel').carousel({
+                  interval: 6000,
+                  pause: false
+                });
+            });
             function switchToVideo() {
+                console.log('dongs');
                 $('#header-component').append('\
-                    <div id="header-component" class="header-video" style="background-image: url(\'/img/bird1.jpg\'); z-index: 10;">\
-                        <iframe style="align-self: center; z-index: 10; height: 100%; width: 100%; max-width: 800px;" src="https://player.vimeo.com/video/65936668" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\
-                        <button class="close-button" onclick="switchBack()"><i class="material-icons">close</i></button>\
-                        <div class="dark-overlay"></div>\
-                    </div>\
-                ')
+                        <div id="header-component" class="header-video" style="background-image: url(\'/img/bird1.jpg\'); z-index: 10;">\
+                            <iframe id="video-iframe" style="align-self: center; z-index: 10; height: 100%; width: 100%; max-width: 800px;" src="https://player.vimeo.com/video/65936668" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\
+                            <button class="close-button" onclick="switchBack()"><i class="material-icons">close</i></button>\
+                            <div class="dark-overlay"></div>\
+                        </div>\
+                    ')
                 $('#header-component > .dark-overlay').css('opacity', '.8');
             }
             function switchBack() {
                 $('#header-component').replaceWith('\
-                    <div id="header-component" class="header-block">\
-                        <div class="home-text">\
-                            <div class="text">\
-                                Waterfowlers Film and Photo Tour\
+                        <div id="header-component" class="header-block">\
+                            <div class="home-text">\
+                                <div class="text">\
+                                    Waterfowlers Film and Photo Tour\
+                                </div>\
+                                <div class="details">\
+                                    The Premiere Site for Waterfowling\
+                                </div>\
                             </div>\
-                            <div class="details">\
-                                The Premiere Site for Waterfowling\
+                            <div style="align-self: center; flex-grow: 1; display: flex; justify-content: center;">\
+                                <button class="home-play-button" onclick="switchToVideo()">\
+                                    <i class="material-icons">play_arrow</i>\
+                                </button>\
                             </div>\
+                            <div id="carouselMain" class="carousel carousel-fade" data-ride="carousel">\
+                              <div class="carousel-inner" role="listbox">\
+                                <div class="carousel-item active" style="background-image: url(' + "'/img/1.jpg'" + ');"></div>\
+                                <div class="carousel-item" style="background-image: url(' + "'/img/2.jpg'" + ');"></div>\
+                                <div class="carousel-item" style="background-image: url(' + "'/img/3.jpg'" + ');"></div>\
+                                <div class="carousel-item" style="background-image: url(' + "'/img/4.jpg'" + ');"></div>\
+                                <div class="carousel-item" style="background-image: url(' + "'/img/5.jpg'" + ');"></div>\
+                                <div class="carousel-item" style="background-image: url(' + "'/img/moon.jpg'" + ');"></div>\
+                                <div class="carousel-item" style="background-image: url(' + "'/img/sunset.jpg'" + ');"></div>\
+                              </div>\
+                            </div>\
+                            <div class="dark-overlay"></div>\
                         </div>\
-                        <div style="align-self: center; flex-grow: 1; display: flex; justify-content: center;">\
-                            <button class="home-play-button" onclick="switchToVideo()">\
-                                <i class="material-icons">play_arrow</i>\
-                            </button>\
-                        </div>\
-                        <div id="carouselMain" class="carousel carousel-fade" data-ride="carousel">\
-                          <div class="carousel-inner" role="listbox">\
-                            <div class="carousel-item active" style="background-image: url(' + "'/img/1.jpg'" + ');"></div>\
-                            <div class="carousel-item" style="background-image: url(' + "'/img/2.jpg'" + ');"></div>\
-                            <div class="carousel-item" style="background-image: url(' + "'/img/3.jpg'" + ');"></div>\
-                            <div class="carousel-item" style="background-image: url(' + "'/img/4.jpg'" + ');"></div>\
-                            <div class="carousel-item" style="background-image: url(' + "'/img/5.jpg'" + ');"></div>\
-                            <div class="carousel-item" style="background-image: url(' + "'/img/moon.jpg'" + ');"></div>\
-                            <div class="carousel-item" style="background-image: url(' + "'/img/sunset.jpg'" + ');"></div>\
-                          </div>\
-                        </div>\
-                        <div class="dark-overlay"></div>\
-                    </div>\
-                    <script>$(".carousel").carousel({interval: 6000,pause: false})\
-                ')
+                        <script>$(".carousel").carousel({interval: 6000,pause: false})\
+                    ')
             }
-            $('.carousel').carousel({
-              interval: 6000,
-              pause: false
-            })
         </script>
 
         {% for block in blocks %}
