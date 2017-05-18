@@ -107,6 +107,17 @@
             {% endif %}
         {% endfor %}
 
+        <div class="content-block">
+            <h3 class="title">
+                What do you think?
+            </h3>
+            {% for p in poll %}
+            <p>{{p.question}}</p>
+            <a href="poll/vote/{{p._id}}/yes" class="btn btn-primary">Yes</a>
+            <a href="poll/vote/{{p._id}}/no" class="btn btn-primary">No</a>
+            {% endfor %}
+        </div>
+
         <div class='content-block'>
             <h3 class="title">
                 Who's talking about us?

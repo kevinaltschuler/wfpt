@@ -64,4 +64,17 @@
     </div>
 </div>
 
+<div>
+    <h3>Poll</h3>
+    {% for p in poll %}
+    <form id="pollForm" action="poll/update/{{p._id}}" method="POST">
+        <input id="pollQuestion" type="text" name="question" placeholder="New Question" />
+        <button type="submit">Update</button>
+    </form>
+    <div class="content even">
+        <p>Current Question: {{p.question}} | Yes Votes: {{p.yes}} | No Votes: {{p.no}}</p>
+    </div>
+    {% endfor %}
+</div>
+
 {% endblock %}

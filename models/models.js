@@ -9,11 +9,13 @@ connection.once('open', function() {
 var tourModel = require('./tourSchema');
 var trailerModel = require('./trailerSchema');
 var pressModel = require('./pressSchema');
+var pollModel = require('./pollSchema');
 
 var models = {
     tour: tourModel,
     trailer: trailerModel,
-    press: pressModel
+    press: pressModel,
+    poll: pollModel
 };
 
 module.exports = models;
