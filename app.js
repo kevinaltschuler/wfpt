@@ -8,6 +8,7 @@ import nodemailer from 'nodemailer';
 import Tour from './models/tourSchema';
 import Trailer from './models/trailerSchema';
 import Press from './models/pressSchema';
+import Poll from './models/pollSchema';
 import submitBlocks from './submitBlocks';
 import homeBlocks from './homeBlocks';
 
@@ -89,11 +90,18 @@ app.get('/home', (req, res) => {
             console.log(err);
         }
 
-        res.render('Home/home.html', {
-            page: 'home',
-            port: app.get('port'),
-            presses: presses,
-            blocks: homeBlocks,
+        Poll.find( (err, poll) => {
+            if(err) {
+                console.log(err);
+            }
+
+            res.render('Home/home.html', {
+                page: 'home',
+                port: app.get('port'),
+                presses: presses,
+                poll: poll,
+                blocks: homeBlocks
+            });
         });
     });
 });
@@ -239,6 +247,19 @@ app.post('/addPress', (req, res) => {
     });
 });
 
+app.post('/poll/update/:id', (req, res) => {
+    const Poll = models.poll;
+    Poll.findOneAndUpdate({_id: req.params.id}, {$set: { question: req.body.question, yes: 0, no: 0}}, function(err) {
+        if(err){
+            console.log("Something wrong when updating data!");
+            res.redirect('/admin');
+        }
+
+        console.log("update successful!");
+        res.redirect('/admin');
+    });
+});
+
 app.post('/delete/tour/:id', (req, res) => {
     var Tour = models.tour;
     Tour.findByIdAndRemove(req.params.id, function (err) {
@@ -299,12 +320,19 @@ app.get('/admin', passport.authenticate('basic', { session: false }), (req, res)
                     console.log(err);
                 }
 
-                res.render('Admin/admin.html', {
-                    page: 'admin',
-                    port: app.get('port'),
-                    tours: tours,
-                    trailers: trailers,
-                    presses: presses
+                Poll.find( (err, poll) => {
+                    if(err) {
+                        console.log(err);
+                    }
+
+                    res.render('Admin/admin.html', {
+                        page: 'admin',
+                        port: app.get('port'),
+                        tours: tours,
+                        trailers: trailers,
+                        presses: presses,
+                        poll: poll
+                    });
                 });
             });
         });
@@ -403,6 +431,32 @@ app.use('/vote/:id', (req, res) => {
         }
 
         console.log("vote successful!");
+        res.redirect('/success');
+    });
+});
+
+app.use('/poll/vote/:id/yes', (req, res) => {
+    const Poll = models.poll;
+    Poll.findOneAndUpdate({_id: req.params.id}, {$inc: { yes: 1 }}, function(err) {
+        if(err){
+            console.log("Something wrong when updating data!");
+            res.redirect('/failure');
+        }
+
+        console.log("poll vote successful!");
+        res.redirect('/success');
+    });
+});
+
+app.use('/poll/vote/:id/no', (req, res) => {
+    const Poll = models.poll;
+    Poll.findOneAndUpdate({_id: req.params.id}, {$inc: { no: 1 }}, function(err) {
+        if(err){
+            console.log("Something wrong when updating data!");
+            res.redirect('/failure');
+        }
+
+        console.log("poll vote successful!");
         res.redirect('/success');
     });
 });
