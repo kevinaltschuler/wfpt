@@ -113,8 +113,8 @@
             </h3>
             {% for p in poll %}
             <p>{{p.question}}</p>
-            <a href="poll/vote/{{p._id}}/yes" class="btn btn-primary">Yes</a>
-            <a href="poll/vote/{{p._id}}/no" class="btn btn-primary">No</a>
+            <a href="poll/{{p._id}}/vote/yes" class="btn btn-primary">Yes</a>
+            <a href="poll/{{p._id}}/vote/no" class="btn btn-primary">No</a>
             {% endfor %}
         </div>
 
