@@ -241,3 +241,18 @@
   transform: translate3d(0,0,1px);
 }
 
+.home-poll {
+    display: flex;
+    .poll-question {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px 20px 20px;
+        flex: 1;
+        .poll-answers {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+        }
+    }
+}

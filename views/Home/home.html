@@ -111,11 +111,87 @@
             <h3 class="title">
                 What do you think?
             </h3>
-            {% for p in poll %}
-            <p>{{p.question}}</p>
-            <a href="poll/vote/{{p._id}}/yes" class="btn btn-primary">Yes</a>
-            <a href="poll/vote/{{p._id}}/no" class="btn btn-primary">No</a>
-            {% endfor %}
+            <div class="home-poll content">
+                {% for p in poll %}
+                    <script>
+                    function checkIfVoted() {
+                        if($.cookie('poll{{p._id}}Cookie')) {
+                            console.log('voted');
+                            $('#poll{{p._id}}-card').replaceWith('<div id="poll{{p._id}}-card" class="poll-question card">\
+                                <p style="font-size: 20px; margin-bottom: 20px; margin-top: 10px;">{{p.question}}</p>\
+                                <div class="poll-answers">\
+                                    yes\
+                                    <div style="display: flex; flex: 1; margin-top: 10px;">\
+                                        <div class="progress" style="width: 100%">\
+                                            <div\
+                                                class="progress-bar"\
+                                                role="progressbar"\
+                                                style="width: {{(p.yes / (p.yes + p.no)) * 100}}%;"\
+                                                aria-valuenow="{{(p.yes / (p.yes + p.no)) * 100}}"\
+                                                aria-valuemin="0"\
+                                                aria-valuemax="100"\
+                                            >\
+                                                {{ floor((p.yes / (p.yes + p.no)) * 100) }}%\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                    <div style="height: 10px;"></div>\
+                                    no\
+                                    <div style="display: flex; flex: 1; margin-top: 10px;">\
+                                        <div class="progress" style="width: 100%">\
+                                            <div\
+                                                class="progress-bar"\
+                                                role="progressbar"\
+                                                style="width: {{(p.no / (p.no + p.yes)) * 100}}%;"\
+                                                aria-valuenow="{{(p.no / (p.no + p.yes)) * 100}}"\
+                                                aria-valuemin="0"\
+                                                aria-valuemax="100"\
+                                            >\
+                                                {{ floor((p.no / (p.no + p.yes)) * 100) }}%\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                </div>\
+                            </div>');
+                        } else {
+                            console.log('not voted');
+                        }
+                    }
+                    $(function() {
+                        $(checkIfVoted);
+                        $("#poll{{ p._id }}-yes").click(function(){
+                            console.log('vote yes');
+                            var cookieString = "{{p._id}}";
+                            $.cookie('poll{{p._id}}Cookie', cookieString);
+                            $.post("poll/vote/{{p._id}}/yes");
+                            checkIfVoted()
+                        });
+                        $("#poll{{ p._id }}-no").click(function(){
+                            console.log('vote no');
+                            var cookieString = "{{p._id}}";
+                            $.cookie('poll{{p._id}}Cookie', cookieString);
+                            $.post("poll/vote/{{p._id}}/no");
+                            checkIfVoted()
+                        });
+                    });
+                    </script>
+                    <div id="poll{{p._id}}-card" class="poll-question card">
+                        <p style="font-size: 20px; margin-bottom: 20px; margin-top: 10px;">{{p.question}}</p>
+                        <div class="poll-answers">
+                            <div style="display: flex; flex: 1;">
+                                <div style="flex: 1"></div>
+                                <button id="poll{{ p._id }}-yes" style="flex: 1; padding-left: 10px; padding-right: 10px;" class="btn btn-primary">Yes</button>
+                            </div>
+                            <div style="height: 10px;"></div>
+                            <div style="display: flex; flex: 1;">
+                                <div style="flex: 1"></div>
+                                <button id="poll{{ p._id }}-no" style="flex: 1;padding-left: 10px; padding-right: 10px;" class="btn btn-primary">No</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div style="flex: 2;"></div>
+            </div>
         </div>
 
         <div class='content-block'>

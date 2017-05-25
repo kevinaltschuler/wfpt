@@ -100,7 +100,8 @@ app.get('/home', (req, res) => {
                 port: app.get('port'),
                 presses: presses,
                 poll: poll,
-                blocks: homeBlocks
+                blocks: homeBlocks,
+                floor: Math.floor
             });
         });
     });
