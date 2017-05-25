@@ -8,7 +8,7 @@
 
 <div>
 <h2>New Tour Stops</h2>
-<form id="tourForm" action="/addTour" method="POST">
+<form id="tourForm" action="/tour/create" method="POST">
     <input id="tourEvent" type="text" name="event" placeholder="Event" />
     <input id="tourLoc" type="text" name="location" placeholder="Location" />
     <input id="tourDate" type="date" name="date" placeholder="Date" />
@@ -17,7 +17,7 @@
 </form>
 
 <h2>New Trailers</h2>
-<form id="trailerForm" action="/addTrailer" method="POST">
+<form id="trailerForm" action="/trailer/create" method="POST">
     <input id="trailerName" type="text" name="name" placeholder="Name" />
     <input id="trailerDate" type="date" name="date" placeholder="Date" />
     <input id="trailerLink" type="text" name="link" placeholder="Trailer link" />
@@ -27,7 +27,7 @@
 </form>
 
 <h2>New Press Releases</h2>
-<form id="pressForm" action="/addPress" method="POST">
+<form id="pressForm" action="/press/create" method="POST">
     <input id="pressTitle" type="text" name="title" placeholder="Title" />
     <input id="pressDate" type="date" name="date" placeholder="Date" />
     <input id="pressDes" type="text" name="description" aria-multiline="true" placeholder="Description" />
@@ -67,7 +67,7 @@
 <div>
     <h3>Poll</h3>
     {% for p in poll %}
-    <form id="pollForm" action="poll/update/{{p._id}}" method="POST">
+    <form id="pollForm" action="/poll/{{p._id}}/update" method="POST">
         <input id="pollQuestion" type="text" name="question" placeholder="New Question" />
         <button type="submit">Update</button>
     </form>

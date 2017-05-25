@@ -178,7 +178,7 @@ app.get('/failure', (req, res) => {
     });
 });
 
-app.post('/addTour', (req, res) => {
+app.post('/tour/create', passport.authenticate('basic', { session: false }), (req, res) => {
     var Tour = models.tour;
 
     var t = new Tour({
@@ -201,7 +201,7 @@ app.post('/addTour', (req, res) => {
     });
 });
 
-app.post('/addTrailer', (req, res) => {
+app.post('/trailer/create', passport.authenticate('basic', { session: false }), (req, res) => {
     var Trailer = models.trailer;
 
     var t = new Trailer({
@@ -225,7 +225,7 @@ app.post('/addTrailer', (req, res) => {
     });
 });
 
-app.post('/addPress', (req, res) => {
+app.post('/press/create', passport.authenticate('basic', { session: false }), (req, res) => {
     var Press = models.press;
 
     var p = new Press({
@@ -248,7 +248,7 @@ app.post('/addPress', (req, res) => {
     });
 });
 
-app.post('/poll/update/:id', (req, res) => {
+app.post('/poll/:id/update', passport.authenticate('basic', { session: false }), (req, res) => {
     const Poll = models.poll;
     Poll.findOneAndUpdate({_id: req.params.id}, {$set: { question: req.body.question, yes: 0, no: 0}}, function(err) {
         if(err){
@@ -261,7 +261,7 @@ app.post('/poll/update/:id', (req, res) => {
     });
 });
 
-app.post('/delete/tour/:id', (req, res) => {
+app.post('/tour/:id/delete', passport.authenticate('basic', { session: false }), (req, res) => {
     var Tour = models.tour;
     Tour.findByIdAndRemove(req.params.id, function (err) {
         if (err) {
@@ -275,7 +275,7 @@ app.post('/delete/tour/:id', (req, res) => {
     });
 });
 
-app.post('/delete/trailer/:id', (req, res) => {
+app.post('/trailer/:id/delete', passport.authenticate('basic', { session: false }), (req, res) => {
     var Trailer = models.trailer;
     Trailer.findByIdAndRemove(req.params.id, function (err) {
         if (err) {
@@ -289,7 +289,7 @@ app.post('/delete/trailer/:id', (req, res) => {
     });
 });
 
-app.post('/delete/press/:id', (req, res) => {
+app.post('/press/:id/delete', passport.authenticate('basic', { session: false }), (req, res) => {
     var Press = models.press;
     Press.findByIdAndRemove(req.params.id, function (err) {
         if (err) {
@@ -422,8 +422,7 @@ app.use('/sendRequest', (req, res) => {
     });
 });
 
-
-app.use('/vote/:id', (req, res) => {
+app.use('/trailer/:id/vote', (req, res) => {
     const Trailer = models.trailer;
     Trailer.findOneAndUpdate({_id: req.params.id}, {$inc: { votes: 1 }}, function(err) {
         if(err){
@@ -436,7 +435,7 @@ app.use('/vote/:id', (req, res) => {
     });
 });
 
-app.use('/poll/vote/:id/yes', (req, res) => {
+app.use('/poll/:id/vote/yes', (req, res) => {
     const Poll = models.poll;
     Poll.findOneAndUpdate({_id: req.params.id}, {$inc: { yes: 1 }}, function(err) {
         if(err){
@@ -449,7 +448,7 @@ app.use('/poll/vote/:id/yes', (req, res) => {
     });
 });
 
-app.use('/poll/vote/:id/no', (req, res) => {
+app.use('/poll/:id/vote/no', (req, res) => {
     const Poll = models.poll;
     Poll.findOneAndUpdate({_id: req.params.id}, {$inc: { no: 1 }}, function(err) {
         if(err){

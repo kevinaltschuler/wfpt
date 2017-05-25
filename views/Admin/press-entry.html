@@ -1,7 +1,7 @@
 {% macro press(p={}) %}
 <div style="display: flex">
     Title: {{p.title}} | Date: {{p.date.toString().substring(0, 15)}} ----
-    <form action="/delete/press/{{p._id}}" method="POST">
+    <form action="/press/{{p._id}}/delete" method="POST">
         <button type="submit">
             <i class="material-icons">delete</i>
         </button>
