@@ -111,13 +111,13 @@
             <h3 class="title">
                 What do you think?
             </h3>
-            <div class="home-poll content">
+            <div class="home-poll content" style="justify-content: center;">
                 {% for p in poll %}
                     <script>
                     function checkIfVoted() {
                         if($.cookie('poll{{p._id}}Cookie')) {
                             console.log('voted');
-                            $('#poll{{p._id}}-card').replaceWith('<div id="poll{{p._id}}-card" class="poll-question card">\
+                            $('#poll{{p._id}}-card').replaceWith('<div id="poll{{p._id}}-card" class="poll-question card" style="max-width: 500px;">\
                                 <p style="font-size: 20px; margin-bottom: 20px; margin-top: 10px;">{{p.question}}</p>\
                                 <div class="poll-answers">\
                                     Yes\
@@ -175,7 +175,7 @@
                         });
                     });
                     </script>
-                    <div id="poll{{p._id}}-card" class="poll-question card">
+                    <div id="poll{{p._id}}-card" class="poll-question card" style="max-width: 500px;">
                         <p style="font-size: 20px; margin-bottom: 20px; margin-top: 10px;">{{p.question}}</p>
                         <div class="poll-answers">
                             <div style="display: flex; flex: 1;">
@@ -190,7 +190,6 @@
                         </div>
                     </div>
                 {% endfor %}
-                <div style="flex: 2;"></div>
             </div>
         </div>
 
