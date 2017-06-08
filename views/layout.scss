@@ -101,4 +101,7 @@ h3 {
     .content-block-submit .submit-fields-column {
         margin: 0 !important;
     }
+    .content-block-submit .submit-fields-column .two-column {
+        flex-direction: column !important;
+    }
 }
