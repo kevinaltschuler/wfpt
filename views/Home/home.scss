@@ -256,3 +256,18 @@
         }
     }
 }
+
+@media screen and (max-width: 800px) {
+    .home-play-button {
+        width: 80px;
+        height: 80px;
+    }
+    .close-button {
+        z-index: 999;
+    }
+
+    #header-component {
+        padding-left: 0px !important;
+        margin-left: -20px !important;
+    }
+}
