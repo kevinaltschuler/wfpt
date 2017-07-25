@@ -6,16 +6,29 @@
 <div>
     {% set demoImageSrc = 'url("img/running.jpg")' %}
     {{ headerBlock(image=demoImageSrc, text="Show Stops and Tix") }}
+    {% if tours %}
+        <div class="content-block even">
+            <strong>Stops</strong>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 40px 20px;">
-        {% for tour in tours %}
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 40px 20px;">
+                {% for tour in tours %}
 
-            {{  tourCard(tour)  }}
+                    {{  tourCard(tour)  }}
 
-        {% endfor %}
-        <div class="card tour-card" style="opacity: 0;">
-            <div class="card-block">
+                {% endfor %}
             </div>
+        </div>
+    {% else %}
+        <div class="content-block even">
+            <strong>Stops</strong>
+
+            <div style="flex: 1; justify-content: center; align-items: center; display: flex; margin-top: 100px;">
+                no dates yet!
+            </div>
+        </div>
+    {% endif %}
+    <div class="card tour-card" style="opacity: 0;">
+        <div class="card-block">
         </div>
     </div>
 </div>

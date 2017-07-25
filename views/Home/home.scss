@@ -269,5 +269,18 @@
     #header-component {
         padding-left: 0px !important;
         margin-left: -20px !important;
+
+        .home-text {
+            padding: 0px 20px;
+        }
+    }
+    #wfpt-home .header-block {
+        height: 400px;
+    }
+    #wfpt-home .header-block #carouselMain {
+        height: 400px;
+    }
+    #wfpt-home .header-block .dark-overlay {
+        height: 400px;
     }
 }
