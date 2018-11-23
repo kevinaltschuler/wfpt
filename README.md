@@ -12,9 +12,7 @@ npm install
 node app.js
 ```
 
-...then you should see this if you go to: `http://localhost:3000`
-
-<img src="http://i.imgur.com/cHUoULb.png?1" style="border: solid #eee 1px">
+then go to: `http://localhost:3000` to see site
 
 2. Template structure
 ---
