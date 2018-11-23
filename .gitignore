@@ -1,8 +1,7 @@
 
 node_modules
-
-npm-debug.log
-
 npm-debug
-
 .idea
+*.iml
+*.log
+.DS_Store
